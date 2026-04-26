@@ -1,28 +1,32 @@
 <script setup>
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import { languages, translations } from './i18n';
-import logoWhite from './public/white.svg';
 
 const isMenuOpen = ref(false);
 const isHeaderSolid = ref(false);
 const currentLanguage = ref('en');
 const currentPath = ref('/');
 const activeProjectSlide = ref(0);
+const contactsMapStatus = ref('idle');
 let revealObserver;
 let projectSliderTimer;
+const homeHeroEl = ref(null);
+const homeProjectsEl = ref(null);
 
 const t = computed(() => translations[currentLanguage.value]);
 const projectSlug = computed(() => currentPath.value.split('/').filter(Boolean)[0] || '');
+const isAboutPage = computed(() => projectSlug.value === 'about');
+const isContactsPage = computed(() => projectSlug.value === 'contacts');
 const isProjectsPage = computed(() => projectSlug.value === 'projects');
 const currentProject = computed(() => t.value.projectPages?.[projectSlug.value] || null);
 const isProjectPage = computed(() => Boolean(currentProject.value));
-const homePathPrefix = computed(() => (isProjectPage.value || isProjectsPage.value ? '/' : ''));
+const homePathPrefix = computed(() => (currentPath.value === '/' ? '' : '/'));
 
 const navItems = computed(() => [
   { label: t.value.nav.project, href: '/projects' },
-  { label: t.value.nav.about, href: `${homePathPrefix.value}#about` },
+  { label: t.value.nav.about, href: '/about' },
   { label: t.value.nav.services, href: `${homePathPrefix.value}#services` },
-  { label: t.value.nav.contacts, href: `${homePathPrefix.value}#contacts` },
+  { label: t.value.nav.contacts, href: '/contacts' },
 ]);
 
 const socials = [
@@ -31,39 +35,41 @@ const socials = [
   { label: 'Behance', href: 'https://www.behance.net/' },
 ];
 
-const heroImage = new URL('./public/View_02,2.jpg', import.meta.url).href;
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const logoWhite = publicAsset('white.svg');
+const heroImage = publicAsset('view-02-2.jpg');
 
 const serviceImages = [
-  new URL('./public/sections/services/1.jpg', import.meta.url).href,
-  new URL('./public/sections/services/2.jpg', import.meta.url).href,
-  new URL('./public/sections/services/3.jpg', import.meta.url).href,
-  new URL('./public/sections/services/4.jpg', import.meta.url).href,
+  publicAsset('sections/services/architecture-idea.jpg'),
+  publicAsset('sections/services/city-concept.jpg'),
+  publicAsset('sections/services/detailed-documents.jpg'),
+  publicAsset('sections/services/masterplan.jpg'),
 ];
 
 const projectThumbs = [
-  new URL('./public/meliora/General view from the road_F_Upd.jpg', import.meta.url).href,
-  new URL('./public/sections/about-copy/1.jpg', import.meta.url).href,
-  new URL('./public/sections/services/3.jpg', import.meta.url).href,
-  new URL('./public/sections/about-copy/2.jpg', import.meta.url).href,
-  new URL('./public/sections/services/2.jpg', import.meta.url).href,
-  new URL('./public/sections/about-copy/3.jpg', import.meta.url).href,
+  publicAsset('meliora/general-road.jpg'),
+  publicAsset('sections/about-copy/residential-exterior.jpg'),
+  publicAsset('sections/services/detailed-documents.jpg'),
+  publicAsset('sections/about-copy/mixed-use-exterior.jpg'),
+  publicAsset('sections/services/city-concept.jpg'),
+  publicAsset('sections/about-copy/waterfront-residential.jpg'),
 ];
 
 const projectImageGroups = {
   meliora: {
-    hero: new URL('./public/meliora/General view from the road_F_Upd.jpg', import.meta.url).href,
+    hero: publicAsset('meliora/general-road.jpg'),
     gallery: [
-      new URL('./public/meliora/General view from the park_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/Evening front view_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/Ev_view_MT_F_warm.jpg', import.meta.url).href,
-      new URL('./public/meliora/Front_terras_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/Back_ter_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/0_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/3_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/4_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/7_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/11_F.jpg', import.meta.url).href,
-      new URL('./public/meliora/12_F.jpg', import.meta.url).href,
+      publicAsset('meliora/general-park.jpg'),
+      publicAsset('meliora/evening-front.jpg'),
+      publicAsset('meliora/ev-view-mt-warm.jpg'),
+      publicAsset('meliora/front-terras.jpg'),
+      publicAsset('meliora/back-ter.jpg'),
+      publicAsset('meliora/0-f.jpg'),
+      publicAsset('meliora/3-f.jpg'),
+      publicAsset('meliora/4-f.jpg'),
+      publicAsset('meliora/7-f.jpg'),
+      publicAsset('meliora/11-f.jpg'),
+      publicAsset('meliora/12-f.jpg'),
     ],
   },
 };
@@ -76,10 +82,18 @@ const projectCards = computed(() => t.value.projects.items.map((project, index) 
 })));
 
 const aboutImages = {
-  left: new URL('./public/sections/about-copy/1.jpg', import.meta.url).href,
-  center: new URL('./public/sections/about-copy/2.jpg', import.meta.url).href,
-  right: new URL('./public/sections/about-copy/3.jpg', import.meta.url).href,
+  left: publicAsset('sections/about-copy/residential-exterior.jpg'),
+  center: publicAsset('sections/about-copy/mixed-use-exterior.jpg'),
+  right: publicAsset('sections/about-copy/waterfront-residential.jpg'),
 };
+
+const aboutPageImages = {
+  hero: publicAsset('sections/about/team.jpg'),
+  story: publicAsset('sections/about/team2.jpg'),
+};
+
+const aboutFeaturedProjects = computed(() => projectCards.value.slice(0, 2));
+const contactsMapEl = ref(null);
 
 function closeMenu() {
   isMenuOpen.value = false;
@@ -125,6 +139,31 @@ function startProjectSlider() {
   }, 5200);
 }
 
+function observeAnimatedElements() {
+  if (!revealObserver) return;
+
+  document.querySelectorAll('[data-animate]').forEach((element) => {
+    if (!element.classList.contains('is-visible')) {
+      revealObserver.observe(element);
+    }
+  });
+}
+
+function updateHomeStackTransition() {
+  if (currentPath.value !== '/') return;
+  const projects = homeProjectsEl.value;
+
+  if (!projects) return;
+
+  const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
+  const rect = projects.getBoundingClientRect();
+  const start = Math.max(220, window.innerHeight * 0.7);
+  const progress = Math.min(1, Math.max(0, (start - (rect.top - headerOffset)) / start));
+
+  projects.style.setProperty('--stack-progress', progress.toFixed(4));
+  homeHeroEl.value?.style.setProperty('--stack-progress', progress.toFixed(4));
+}
+
 function updateHeaderState() {
   const firstSection = document.querySelector('main section');
   const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
@@ -132,6 +171,8 @@ function updateHeaderState() {
   isHeaderSolid.value = firstSection
     ? window.scrollY > firstSection.offsetHeight - headerOffset
     : window.scrollY > headerOffset;
+
+  updateHomeStackTransition();
 }
 
 onMounted(() => {
@@ -155,9 +196,7 @@ onMounted(() => {
   });
 
   nextTick(() => {
-    document.querySelectorAll('[data-animate]').forEach((element) => {
-      revealObserver.observe(element);
-    });
+    observeAnimatedElements();
 
     updateHeaderState();
   });
@@ -167,6 +206,79 @@ onMounted(() => {
   startProjectSlider();
 });
 
+function loadGoogleMaps(key) {
+  if (!key) return Promise.resolve(null);
+  if (window.google?.maps) return Promise.resolve(window.google.maps);
+
+  contactsMapStatus.value = 'loading';
+
+  return new Promise((resolve) => {
+    const existing = document.querySelector('script[data-google-maps-loader]');
+    if (existing) {
+      existing.addEventListener('load', () => resolve(window.google?.maps ?? null), { once: true });
+      existing.addEventListener('error', () => resolve(null), { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&libraries=places`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.googleMapsLoader = 'true';
+    script.onload = () => resolve(window.google?.maps ?? null);
+    script.onerror = () => resolve(null);
+    document.head.appendChild(script);
+  });
+}
+
+async function initContactsMap() {
+  if (!isContactsPage.value) return;
+  const target = contactsMapEl.value;
+  if (!target) return;
+
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const maps = await loadGoogleMaps(apiKey);
+
+  if (!maps) {
+    contactsMapStatus.value = apiKey ? 'error' : 'no-key';
+    return;
+  }
+
+  const map = new maps.Map(target, {
+    center: { lat: 43.238949, lng: 76.889709 },
+    zoom: 13,
+    disableDefaultUI: true,
+    zoomControl: true,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: true,
+    gestureHandling: 'cooperative',
+  });
+
+  const address = t.value.contactsPage?.mapQuery || t.value.footer?.addressValue;
+  const geocoder = new maps.Geocoder();
+
+  geocoder.geocode({ address }, (results, status) => {
+    if (status !== 'OK' || !results?.[0]?.geometry?.location) {
+      contactsMapStatus.value = 'error';
+      return;
+    }
+
+    const location = results[0].geometry.location;
+    map.setCenter(location);
+    map.setZoom(16);
+
+    // eslint-disable-next-line no-new
+    new maps.Marker({
+      map,
+      position: location,
+      title: t.value.footer?.addressValue || address,
+    });
+
+    contactsMapStatus.value = 'ready';
+  });
+}
+
 watch(isMenuOpen, (value) => {
   document.body.classList.toggle('menu-open', value);
 });
@@ -174,11 +286,21 @@ watch(isMenuOpen, (value) => {
 watch(currentLanguage, (value) => {
   document.documentElement.lang = value;
   window.localStorage.setItem('most-language', value);
+
+  nextTick(() => {
+    observeAnimatedElements();
+    updateHeaderState();
+  });
 });
 
 watch(projectSlug, () => {
   activeProjectSlide.value = 0;
   nextTick(startProjectSlider);
+});
+
+watch([isContactsPage, currentLanguage], () => {
+  contactsMapStatus.value = 'idle';
+  nextTick(initContactsMap);
 });
 
 onUnmounted(() => {
@@ -191,7 +313,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="site-header" :class="{ 'is-solid': isHeaderSolid || isMenuOpen || isProjectsPage }">
+  <header class="site-header"
+    :class="{ 'is-solid': isHeaderSolid || isMenuOpen || isProjectsPage || isContactsPage, 'is-about-page': isAboutPage }">
     <a class="brand" href="/" :aria-label="t.aria.home">
       <img :src="logoWhite" alt="Most Architects">
     </a>
@@ -231,8 +354,8 @@ onUnmounted(() => {
   </header>
 
   <main>
-    <template v-if="!isProjectPage && !isProjectsPage">
-      <section class="hero" aria-labelledby="hero-title">
+    <template v-if="!isProjectPage && !isProjectsPage && !isAboutPage && !isContactsPage">
+      <section ref="homeHeroEl" class="hero stack-hero" aria-labelledby="hero-title">
         <div class="hero-media media-frame">
           <img :src="heroImage" :alt="t.hero.alt">
         </div>
@@ -243,7 +366,7 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <section id="projects" class="projects section-pad" aria-labelledby="projects-title">
+      <section ref="homeProjectsEl" id="projects" class="projects section-pad stack-next" aria-labelledby="projects-title">
         <div class="section-head" data-animate>
           <h2 id="projects-title">{{ t.projects.title }}</h2>
         </div>
@@ -251,9 +374,9 @@ onUnmounted(() => {
         <div class="project-grid">
           <article v-for="project in projectCards" :key="project.title" class="project-card"
             :class="{ 'project-card-large': project.large }" data-animate>
-            <div class="media-frame">
+            <a class="media-frame" :href="project.href">
               <img :src="project.image" :alt="project.alt">
-            </div>
+            </a>
             <div class="project-meta">
               <h3>{{ project.title }}</h3>
               <p>{{ project.category }}</p>
@@ -359,6 +482,143 @@ onUnmounted(() => {
       </section>
     </template>
 
+    <template v-else-if="isAboutPage">
+      <section class="about-page" aria-labelledby="about-page-title">
+        <section class="about-page-hero section-pad">
+          <div class="about-page-hero-media media-frame" data-animate>
+            <img :src="aboutPageImages.hero" :alt="t.aboutPage.heroAlt">
+          </div>
+
+          <div class="about-page-hero-copy" data-animate>
+            <p class="eyebrow">{{ t.aboutPage.eyebrow }}</p>
+            <h1 id="about-page-title">{{ t.aboutPage.title }}</h1>
+            <p class="about-page-lead">{{ t.aboutPage.lead }}</p>
+            <p class="about-page-lead about-page-lead-secondary">{{ t.aboutPage.leadSecondary }}</p>
+
+            <div class="about-page-experience">
+              <span>{{ t.aboutPage.experienceLabel }}</span>
+              <dl class="about-page-stats">
+                <div v-for="stat in t.aboutPage.stats" :key="stat.value">
+                  <dt>{{ stat.value }}</dt>
+                  <dd>{{ stat.label }}</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-page-approach section-pad" data-animate>
+          <h2>{{ t.aboutPage.approachTitle }}</h2>
+          <p class="about-page-approach-intro">{{ t.aboutPage.approachIntro }}</p>
+          <div class="about-page-approach-lines">
+            <p v-for="item in t.aboutPage.approachItems" :key="item">{{ item }}</p>
+          </div>
+        </section>
+
+        <section class="about-page-story section-pad" data-animate>
+          <div class="about-page-story-copy">
+            <p>{{ t.aboutPage.storyIntro }}</p>
+            <p>{{ t.aboutPage.storyText }}</p>
+          </div>
+
+          <div class="about-page-story-media media-frame is-contain">
+            <img :src="aboutPageImages.story" :alt="t.aboutPage.storyAlt">
+          </div>
+        </section>
+
+        <section class="about-page-featured section-pad" data-animate>
+          <div class="section-head about-page-featured-head">
+            <h2>{{ t.aboutPage.featuredTitle }}</h2>
+          </div>
+
+          <div class="project-grid about-page-featured-grid">
+            <article v-for="project in aboutFeaturedProjects" :key="project.title" class="project-card"
+              :class="{ 'project-card-large': project.large }">
+              <a class="media-frame" :href="project.href">
+                <img :src="project.image" :alt="project.alt">
+              </a>
+              <div class="project-meta">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.category }}</p>
+                <a :href="project.href">{{ t.projects.view }}</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </template>
+
+    <template v-else-if="isContactsPage">
+      <section class="contacts-page" aria-labelledby="contacts-page-title">
+        <section class="contacts-page-hero section-pad">
+          <div class="contacts-page-hero-media media-frame contacts-page-map" data-animate>
+            <div ref="contactsMapEl" class="contacts-page-map-canvas" :data-state="contactsMapStatus"></div>
+            <iframe
+              v-if="contactsMapStatus !== 'ready'"
+              class="contacts-page-map-fallback"
+              :title="t.contactsPage.heroAlt"
+              :src="`https://www.google.com/maps?q=${encodeURIComponent(t.contactsPage.mapQuery)}&output=embed`"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div class="contacts-page-hero-copy" data-animate>
+            <p class="eyebrow">{{ t.contactsPage.eyebrow }}</p>
+            <h1 id="contacts-page-title">{{ t.contactsPage.title }}</h1>
+            <p class="contacts-page-lead">{{ t.contactsPage.lead }}</p>
+          </div>
+        </section>
+
+        <section class="contacts-page-grid section-pad" data-animate>
+          <div class="contacts-page-info">
+            <h2 class="contacts-page-subtitle">{{ t.contactsPage.infoTitle }}</h2>
+
+            <div class="contacts-page-cards">
+              <div class="contacts-page-card">
+                <span>{{ t.contactsPage.cards.phoneLabel }}</span>
+                <a href="tel:+77717337700">+ 7 (771) 733 77 00</a>
+              </div>
+              <div class="contacts-page-card">
+                <span>{{ t.contactsPage.cards.emailLabel }}</span>
+                <a href="mailto:info@most-a.com">info@most-a.com</a>
+              </div>
+              <div class="contacts-page-card">
+                <span>{{ t.contactsPage.cards.addressLabel }}</span>
+                <p>{{ t.footer.addressValue }}</p>
+              </div>
+              <div class="contacts-page-card">
+                <span>{{ t.contactsPage.cards.hoursLabel }}</span>
+                <p>{{ t.footer.hoursValue }}</p>
+              </div>
+            </div>
+
+            <div class="contacts-page-note">
+              <p>{{ t.contactsPage.note }}</p>
+            </div>
+          </div>
+
+          <form class="contacts-page-form" action="#" method="post">
+            <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
+            <label>
+              <input type="text" name="name" :placeholder="t.contact.name" autocomplete="name" required>
+            </label>
+            <label>
+              <input type="tel" name="phone" :placeholder="t.contact.phonePlaceholder" autocomplete="tel" required>
+            </label>
+            <label>
+              <input type="text" name="message" :placeholder="t.contactsPage.messagePlaceholder" autocomplete="off">
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="privacy" checked required>
+              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{ t.contact.privacyLink }}</a></span>
+            </label>
+            <button class="submit-button" type="submit">{{ t.contactsPage.submit }}</button>
+          </form>
+        </section>
+      </section>
+    </template>
+
     <template v-else-if="isProjectsPage">
       <section class="projects-page section-pad" aria-labelledby="all-projects-title">
         <div class="projects-page-head" data-animate>
@@ -458,9 +718,9 @@ onUnmounted(() => {
           <div class="project-grid">
             <article v-for="project in projectCards.filter((item) => item.href !== `/${projectSlug}`)"
               :key="project.title" class="project-card">
-              <div class="media-frame">
+              <a class="media-frame" :href="project.href">
                 <img :src="project.image" :alt="project.alt">
-              </div>
+              </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
                 <p>{{ project.category }}</p>
