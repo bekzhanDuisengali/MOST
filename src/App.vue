@@ -25,7 +25,6 @@ const homePathPrefix = computed(() => (currentPath.value === '/' ? '' : '/'));
 const navItems = computed(() => [
   { label: t.value.nav.project, href: '/projects' },
   { label: t.value.nav.about, href: '/about' },
-  { label: t.value.nav.services, href: `${homePathPrefix.value}#services` },
   { label: t.value.nav.contacts, href: '/contacts' },
 ]);
 
@@ -100,6 +99,104 @@ function closeMenu() {
   isMenuOpen.value = false;
 }
 
+function getHeaderOffset() {
+  return Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
+}
+
+function scrollToHash(hash, behavior = 'smooth') {
+  const id = decodeURIComponent(hash.replace(/^#/, ''));
+
+  if (!id) return false;
+
+  const target = document.getElementById(id);
+
+  if (!target) return false;
+
+  const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset() - 12;
+
+  window.scrollTo({
+    top: Math.max(0, top),
+    behavior,
+  });
+
+  return true;
+}
+
+async function syncRoute(scrollMode = 'auto') {
+  currentPath.value = window.location.pathname;
+  closeMenu();
+
+  await nextTick();
+
+  observeAnimatedElements();
+  updateHeaderState();
+
+  if (scrollMode === 'hash') {
+    scrollToHash(window.location.hash, 'smooth');
+    return;
+  }
+
+  if (scrollMode === 'top') {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+}
+
+function navigateTo(href) {
+  const url = new URL(href, window.location.origin);
+  const nextLocation = `${url.pathname}${url.search}${url.hash}`;
+  const currentLocation = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+  if (nextLocation === currentLocation) {
+    if (url.hash) {
+      scrollToHash(url.hash, 'smooth');
+    }
+
+    return;
+  }
+
+  window.history.pushState({}, '', nextLocation);
+  void syncRoute(url.hash ? 'hash' : 'top');
+}
+
+function handleDocumentClick(event) {
+  if (
+    event.defaultPrevented
+    || event.button !== 0
+    || event.metaKey
+    || event.ctrlKey
+    || event.shiftKey
+    || event.altKey
+    || !(event.target instanceof Element)
+  ) {
+    return;
+  }
+
+  const anchor = event.target.closest('a[href]');
+
+  if (!anchor || anchor.hasAttribute('download') || anchor.getAttribute('target') === '_blank') {
+    return;
+  }
+
+  const href = anchor.getAttribute('href');
+
+  if (!href || href.startsWith('mailto:') || href.startsWith('tel:')) {
+    return;
+  }
+
+  const url = new URL(anchor.href, window.location.href);
+
+  if (url.origin !== window.location.origin) {
+    return;
+  }
+
+  event.preventDefault();
+  navigateTo(`${url.pathname}${url.search}${url.hash}`);
+}
+
+function handlePopState() {
+  void syncRoute(window.location.hash ? 'hash' : 'none');
+}
+
 function setLanguage(code) {
   currentLanguage.value = code;
   closeMenu();
@@ -156,7 +253,7 @@ function updateHomeStackTransition() {
 
   if (!projects) return;
 
-  const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
+  const headerOffset = getHeaderOffset();
   const rect = projects.getBoundingClientRect();
   const start = Math.max(220, window.innerHeight * 0.7);
   const progress = Math.min(1, Math.max(0, (start - (rect.top - headerOffset)) / start));
@@ -167,7 +264,7 @@ function updateHomeStackTransition() {
 
 function updateHeaderState() {
   const firstSection = document.querySelector('main section');
-  const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
+  const headerOffset = getHeaderOffset();
 
   isHeaderSolid.value = firstSection
     ? window.scrollY > firstSection.offsetHeight - headerOffset
@@ -200,8 +297,14 @@ onMounted(() => {
     observeAnimatedElements();
 
     updateHeaderState();
+
+    if (window.location.hash) {
+      scrollToHash(window.location.hash, 'auto');
+    }
   });
 
+  document.addEventListener('click', handleDocumentClick);
+  window.addEventListener('popstate', handlePopState);
   window.addEventListener('scroll', updateHeaderState, { passive: true });
   window.addEventListener('resize', updateHeaderState);
   startProjectSlider();
@@ -308,6 +411,8 @@ onUnmounted(() => {
   document.body.classList.remove('menu-open');
   revealObserver?.disconnect();
   window.clearInterval(projectSliderTimer);
+  document.removeEventListener('click', handleDocumentClick);
+  window.removeEventListener('popstate', handlePopState);
   window.removeEventListener('scroll', updateHeaderState);
   window.removeEventListener('resize', updateHeaderState);
 });
