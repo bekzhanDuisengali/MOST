@@ -38,6 +38,7 @@ const socials = [
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 const logoWhite = publicAsset('white.svg');
 const heroImage = publicAsset('view-02-2.jpg');
+const heroMobileImage = publicAsset('sections/about-copy/mixed-use-exterior.jpg');
 
 const serviceImages = [
   publicAsset('sections/services/architecture-idea.jpg'),
@@ -357,7 +358,10 @@ onUnmounted(() => {
     <template v-if="!isProjectPage && !isProjectsPage && !isAboutPage && !isContactsPage">
       <section ref="homeHeroEl" class="hero stack-hero" aria-labelledby="hero-title">
         <div class="hero-media media-frame">
-          <img :src="heroImage" :alt="t.hero.alt">
+          <picture>
+            <source :srcset="heroMobileImage" media="(max-width: 820px)">
+            <img :src="heroImage" :alt="t.hero.alt">
+          </picture>
         </div>
         <div class="hero-content section-pad">
           <p class="eyebrow">{{ t.hero.eyebrow }}</p>
