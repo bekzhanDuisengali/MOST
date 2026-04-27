@@ -1,6 +1,6 @@
 <script setup>
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
-import { languages, translations } from './i18n';
+import { categoryOrder, languages, translations } from './i18n';
 
 const isMenuOpen = ref(false);
 const isHeaderSolid = ref(false);
@@ -8,6 +8,7 @@ const currentLanguage = ref('en');
 const currentPath = ref('/');
 const activeProjectSlide = ref(0);
 const contactsMapStatus = ref('idle');
+const activeFilters = ref([]);
 let revealObserver;
 let projectSliderTimer;
 const homeHeroEl = ref(null);
@@ -28,11 +29,6 @@ const navItems = computed(() => [
   { label: t.value.nav.contacts, href: '/contacts' },
 ]);
 
-const socials = [
-  { label: 'WhatsApp', href: 'https://wa.me/77717337700' },
-  { label: 'Instagram', href: 'https://www.instagram.com/' },
-  { label: 'Behance', href: 'https://www.behance.net/' },
-];
 
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 const logoWhite = publicAsset('white.svg');
@@ -72,14 +68,78 @@ const projectImageGroups = {
       publicAsset('meliora/12-f.jpg'),
     ],
   },
+  biography: {
+    hero: publicAsset('biography/New_01.jpg'),
+    gallery: [
+      publicAsset('biography/New_02.jpg'),
+      publicAsset('biography/View_02_1.jpg'),
+      publicAsset('biography/View_02_2.jpg'),
+      publicAsset('biography/com_02_day.jpg'),
+      publicAsset('biography/Commerce.jpg'),
+      publicAsset('biography/Commerce_02.jpg'),
+      publicAsset('biography/Commerce_Alley.jpg'),
+      publicAsset('biography/bird_commerce_LOGO_19-08-2025.jpg'),
+      publicAsset('biography/bird_view_04-25-02-2025.jpg'),
+    ],
+  },
+  naukograd: {
+    hero: publicAsset('naukograd/pos_tuzusai.jpg'),
+    gallery: [
+      publicAsset('naukograd/01_Tehno_Park.jpg'),
+      publicAsset('naukograd/Tekhno_Park_02.jpg'),
+      publicAsset('naukograd/02_lib_night.jpg'),
+      publicAsset('naukograd/lib_day.jpg'),
+      publicAsset('naukograd/library.jpg'),
+      publicAsset('naukograd/Bird_night_02_02.jpg'),
+      publicAsset('naukograd/Bird_view_Lilrary.jpg'),
+      publicAsset('naukograd/Bus_view.jpg'),
+      publicAsset('naukograd/Univer_01_2.jpg'),
+      publicAsset('naukograd/Univer_02_1.jpg'),
+    ],
+  },
+  'raddison-turkestan': {
+    hero: publicAsset('raddison-turkestan/pos_tuzusai.jpg'),
+    gallery: [
+      publicAsset('raddison-turkestan/01_Tehno_Park.jpg'),
+      publicAsset('raddison-turkestan/Tekhno_Park_02.jpg'),
+      publicAsset('raddison-turkestan/02_lib_night.jpg'),
+      publicAsset('raddison-turkestan/lib_day.jpg'),
+      publicAsset('raddison-turkestan/library.jpg'),
+      publicAsset('raddison-turkestan/Bird_night_02_02.jpg'),
+      publicAsset('raddison-turkestan/Bird_view_Lilrary.jpg'),
+      publicAsset('raddison-turkestan/Bus_view.jpg'),
+      publicAsset('raddison-turkestan/Univer_01_2.jpg'),
+      publicAsset('raddison-turkestan/Univer_02_1.jpg'),
+    ],
+  },
+};
+
+const projectThumbnailMap = {
+  meliora: publicAsset('meliora/general-road.jpg'),
+  biography: publicAsset('biography/New_01.jpg'),
+  naukograd: publicAsset('naukograd/pos_tuzusai.jpg'),
+  'raddison-turkestan': publicAsset('raddison-turkestan/01_Tehno_Park.jpg'),
 };
 
 const projectImages = computed(() => projectImageGroups[projectSlug.value] || projectImageGroups.meliora);
 const projectSliderImages = computed(() => [projectImages.value.hero, ...projectImages.value.gallery]);
-const projectCards = computed(() => t.value.projects.items.map((project, index) => ({
-  ...project,
-  image: projectThumbs[index % projectThumbs.length],
-})));
+const projectCards = computed(() => t.value.projects.items.map((project, index) => {
+  const slug = project.href.replace(/^\//, '');
+  const image = projectThumbnailMap[slug] || projectThumbs[index % projectThumbs.length];
+  const categoryLabel = project.categories.map(c => t.value.categoryLabels[c]).join(', ');
+  return { ...project, image, categoryLabel };
+}));
+const featuredProjectCards = computed(() => projectCards.value.slice(0, 6));
+const filteredProjectCards = computed(() => {
+  if (!activeFilters.value.length) return projectCards.value;
+  return projectCards.value.filter(p => p.categories.some(c => activeFilters.value.includes(c)));
+});
+
+function toggleFilter(slug) {
+  const idx = activeFilters.value.indexOf(slug);
+  if (idx === -1) activeFilters.value.push(slug);
+  else activeFilters.value.splice(idx, 1);
+}
 
 const aboutImages = {
   left: publicAsset('sections/about-copy/residential-exterior.jpg'),
@@ -471,24 +531,26 @@ onUnmounted(() => {
         <div class="hero-content section-pad">
           <p class="eyebrow">{{ t.hero.eyebrow }}</p>
           <h1 id="hero-title">{{ t.hero.title }}</h1>
-          <p>{{ t.hero.text }}</p>
+          <p class="hero-desc">{{ t.hero.text }}</p>
+          <p class="hero-tagline">{{ t.hero.tagline }}</p>
         </div>
       </section>
 
-      <section ref="homeProjectsEl" id="projects" class="projects section-pad stack-next" aria-labelledby="projects-title">
+      <section ref="homeProjectsEl" id="projects" class="projects section-pad stack-next"
+        aria-labelledby="projects-title">
         <div class="section-head" data-animate>
           <h2 id="projects-title">{{ t.projects.title }}</h2>
         </div>
 
         <div class="project-grid">
-          <article v-for="project in projectCards" :key="project.title" class="project-card"
+          <article v-for="project in featuredProjectCards" :key="project.title" class="project-card"
             :class="{ 'project-card-large': project.large }" data-animate>
             <a class="media-frame" :href="project.href">
               <img :src="project.image" :alt="project.alt">
             </a>
             <div class="project-meta">
               <h3>{{ project.title }}</h3>
-              <p>{{ project.category }}</p>
+              <p>{{ project.categoryLabel }}</p>
               <a :href="project.href">{{ t.projects.view }}</a>
             </div>
           </article>
@@ -648,7 +710,7 @@ onUnmounted(() => {
               </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
-                <p>{{ project.category }}</p>
+                <p>{{ project.categoryLabel }}</p>
                 <a :href="project.href">{{ t.projects.view }}</a>
               </div>
             </article>
@@ -662,14 +724,10 @@ onUnmounted(() => {
         <section class="contacts-page-hero section-pad">
           <div class="contacts-page-hero-media media-frame contacts-page-map" data-animate>
             <div ref="contactsMapEl" class="contacts-page-map-canvas" :data-state="contactsMapStatus"></div>
-            <iframe
-              v-if="contactsMapStatus !== 'ready'"
-              class="contacts-page-map-fallback"
+            <iframe v-if="contactsMapStatus !== 'ready'" class="contacts-page-map-fallback"
               :title="t.contactsPage.heroAlt"
               :src="`https://www.google.com/maps?q=${encodeURIComponent(t.contactsPage.mapQuery)}&output=embed`"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
 
           <div class="contacts-page-hero-copy" data-animate>
@@ -710,17 +768,31 @@ onUnmounted(() => {
           <form class="contacts-page-form" action="#" method="post">
             <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
             <label>
-              <input type="text" name="name" :placeholder="t.contact.name" autocomplete="name" required>
+              <input type="text" name="name" :placeholder="t.contactsPage.namePlaceholder" autocomplete="name" required>
+            </label>
+            <label class="contacts-page-form-select-wrap">
+              <select name="service" required>
+                <option value="" disabled selected>{{ t.contactsPage.serviceLabel }}</option>
+                <option v-for="opt in t.contactsPage.serviceOptions" :key="opt" :value="opt">{{ opt }}</option>
+              </select>
             </label>
             <label>
-              <input type="tel" name="phone" :placeholder="t.contact.phonePlaceholder" autocomplete="tel" required>
+              <textarea name="description" :placeholder="t.contactsPage.descPlaceholder" rows="4"
+                autocomplete="off"></textarea>
             </label>
-            <label>
-              <input type="text" name="message" :placeholder="t.contactsPage.messagePlaceholder" autocomplete="off">
+            <label class="contacts-page-form-file">
+              <input type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+              </svg>
+              <span>{{ t.contactsPage.filePlaceholder }}</span>
             </label>
             <label class="checkbox">
               <input type="checkbox" name="privacy" checked required>
-              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{ t.contact.privacyLink }}</a></span>
+              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{
+                t.contact.privacyLink }}</a></span>
             </label>
             <button class="submit-button" type="submit">{{ t.contactsPage.submit }}</button>
           </form>
@@ -738,15 +810,23 @@ onUnmounted(() => {
           <p>{{ t.projectsPage.text }}</p>
         </div>
 
+        <div class="projects-filter" data-animate>
+          <button type="button" class="filter-btn" :class="{ 'is-active': !activeFilters.length }"
+            @click="activeFilters = []">{{ t.projects.allFilter }}</button>
+          <button v-for="slug in categoryOrder" :key="slug" type="button" class="filter-btn"
+            :class="{ 'is-active': activeFilters.includes(slug) }" @click="toggleFilter(slug)">{{ t.categoryLabels[slug]
+            }}</button>
+        </div>
+
         <div class="project-grid projects-page-grid">
-          <article v-for="project in projectCards" :key="project.title" class="project-card" data-animate>
+          <article v-for="project in filteredProjectCards" :key="project.title" class="project-card" data-animate>
             <a class="media-frame" :href="project.href">
               <img :src="project.image" :alt="project.alt">
             </a>
             <div class="project-meta">
               <h3>{{ project.title }}</h3>
-              <p>{{ project.category }}</p>
-              <a :href="project.href">{{ t.projects.view }}</a>
+              <p>{{ project.categoryLabel }}</p>
+              <a v-if="project.href !== '#'" :href="project.href">{{ t.projects.view }}</a>
             </div>
           </article>
         </div>
@@ -825,14 +905,14 @@ onUnmounted(() => {
         <section class="project-more section-pad" data-animate>
           <h2>{{ t.projectPage.more }}</h2>
           <div class="project-grid">
-            <article v-for="project in projectCards.filter((item) => item.href !== `/${projectSlug}`)"
+            <article v-for="project in featuredProjectCards.filter((item) => item.href !== `/${projectSlug}`)"
               :key="project.title" class="project-card">
               <a class="media-frame" :href="project.href">
                 <img :src="project.image" :alt="project.alt">
               </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
-                <p>{{ project.category }}</p>
+                <p>{{ project.categoryLabel }}</p>
                 <a :href="project.href">{{ t.projects.view }}</a>
               </div>
             </article>
