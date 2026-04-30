@@ -113,6 +113,7 @@ const allItems = {
 
 export const translations = {
   en: {
+    ctaFloat: 'Request a project estimate',
     nav: {
       project: 'Project',
       about: 'About',
@@ -855,6 +856,7 @@ export const translations = {
   },
 
   kz: {
+    ctaFloat: 'Жоба есебін сұрау',
     nav: {
       project: 'Жобалар',
       about: 'Бюро',
@@ -1531,6 +1533,7 @@ export const translations = {
   },
 
   ru: {
+    ctaFloat: 'Запросить расчет проекта',
     nav: {
       project: 'Проекты',
       about: 'Бюро',

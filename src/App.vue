@@ -810,11 +810,11 @@ onUnmounted(() => {
             <img :src="heroImage" :alt="t.hero.alt">
           </picture>
         </div>
+
         <div class="hero-content section-pad">
-          <p class="eyebrow">{{ t.hero.eyebrow }}</p>
-          <h1 id="hero-title">{{ t.hero.title }}</h1>
-          <p class="hero-desc">{{ t.hero.text }}</p>
+          <h1 id="hero-title">{{ t.hero.eyebrow }}</h1>
           <p class="hero-tagline">{{ t.hero.tagline }}</p>
+          <a href="/#contacts" class="hero-cta">{{ t.ctaFloat }}</a>
         </div>
       </section>
 
@@ -1097,15 +1097,15 @@ onUnmounted(() => {
 
         <div class="project-grid projects-page-grid">
           <article v-for="project in filteredProjectCards" :key="project.title" class="project-card" data-animate>
-              <a class="media-frame" :href="project.href">
-                <img :src="project.image" :alt="project.alt">
-              </a>
-              <div class="project-meta">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.typeLabel }}</p>
-              </div>
-            </article>
-          </div>
+            <a class="media-frame" :href="project.href">
+              <img :src="project.image" :alt="project.alt">
+            </a>
+            <div class="project-meta">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.typeLabel }}</p>
+            </div>
+          </article>
+        </div>
       </section>
     </template>
 
