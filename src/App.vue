@@ -1,6 +1,6 @@
 <script setup>
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
-import { categoryOrder, languages, translations } from './i18n';
+import { languages, projectTypeOrder, translations } from './i18n';
 
 const isMenuOpen = ref(false);
 const isHeaderSolid = ref(false);
@@ -8,7 +8,7 @@ const currentLanguage = ref('en');
 const currentPath = ref('/');
 const activeProjectSlide = ref(0);
 const contactsMapStatus = ref('idle');
-const activeFilters = ref([]);
+const activeType = ref('all');
 let revealObserver;
 let projectSliderTimer;
 const homeHeroEl = ref(null);
@@ -31,24 +31,25 @@ const navItems = computed(() => [
 
 
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const sourceAsset = (path) => new URL(`./public/${path.replace(/^\/+/, '')}`, import.meta.url).href;
 const logoWhite = publicAsset('white.svg');
-const heroImage = publicAsset('view-02-2.jpg');
-const heroMobileImage = publicAsset('sections/about-copy/mixed-use-exterior.jpg');
+const heroImage = sourceAsset('View_02,2.jpg');
+const heroMobileImage = sourceAsset('View_02,2.jpg');
 
 const serviceImages = [
-  publicAsset('sections/services/architecture-idea.jpg'),
-  publicAsset('sections/services/city-concept.jpg'),
-  publicAsset('sections/services/detailed-documents.jpg'),
-  publicAsset('sections/services/masterplan.jpg'),
+  sourceAsset('sections/services/1.jpg'),
+  sourceAsset('sections/services/2.jpg'),
+  sourceAsset('sections/services/3.jpg'),
+  sourceAsset('sections/services/4.jpg'),
 ];
 
 const projectThumbs = [
   publicAsset('meliora/general-road.jpg'),
-  publicAsset('sections/about-copy/residential-exterior.jpg'),
-  publicAsset('sections/services/detailed-documents.jpg'),
-  publicAsset('sections/about-copy/mixed-use-exterior.jpg'),
-  publicAsset('sections/services/city-concept.jpg'),
-  publicAsset('sections/about-copy/waterfront-residential.jpg'),
+  sourceAsset('sections/about-copy/1.jpg'),
+  sourceAsset('sections/services/3.jpg'),
+  sourceAsset('sections/about-copy/2.jpg'),
+  sourceAsset('sections/services/2.jpg'),
+  sourceAsset('sections/about-copy/3.jpg'),
 ];
 
 const projectImageGroups = {
@@ -112,6 +113,255 @@ const projectImageGroups = {
       publicAsset('raddison-turkestan/Univer_02_1.jpg'),
     ],
   },
+  yubileynyy: {
+    hero: sourceAsset('Yubileynyy/21.04_f.jpg'),
+    gallery: [
+      sourceAsset('Yubileynyy/22.04_f.jpg'),
+      sourceAsset('Yubileynyy/3.2_Base1.jpg'),
+      sourceAsset('Yubileynyy/5.2_F.jpg'),
+      sourceAsset('Yubileynyy/1 (3).jpg'),
+      sourceAsset('Yubileynyy/4_F (1).jpg'),
+    ],
+  },
+  'alatau-village': {
+    hero: sourceAsset('alatau-village/06.07_23C1_f.jpg'),
+    gallery: [
+      sourceAsset('alatau-village/09.07_C2_f.jpg'),
+      sourceAsset('alatau-village/09.07_C2v2_f1.jpg'),
+      sourceAsset('alatau-village/10.07_C3_f1.jpg'),
+      sourceAsset('alatau-village/10.07_C4_f.jpg'),
+      sourceAsset('alatau-village/11.07_C5_f.jpg'),
+      sourceAsset('alatau-village/11.07_C5_f1.jpg'),
+      sourceAsset('alatau-village/11.07_C6_f.jpg'),
+      sourceAsset('alatau-village/11.07_C6_f1.jpg'),
+    ],
+  },
+  'arkon-city': {
+    hero: sourceAsset('arkon-city/Bird_view.jpg'),
+    gallery: [
+      sourceAsset('arkon-city/Bird_view_2.jpg'),
+      sourceAsset('arkon-city/03.jpg'),
+      sourceAsset('arkon-city/04.jpg'),
+      sourceAsset('arkon-city/Aut.jpg'),
+      sourceAsset('arkon-city/Commerce (1).jpg'),
+      sourceAsset('arkon-city/Parking.jpg'),
+      sourceAsset('arkon-city/Playground.jpg'),
+      sourceAsset('arkon-city/winter.jpg'),
+    ],
+  },
+  aulet: {
+    hero: sourceAsset('aulet/_SA_Cam-01.jpg'),
+    gallery: [
+      sourceAsset('aulet/_SA_Cam-02.jpg'),
+      sourceAsset('aulet/SA_Cam-03.jpg'),
+      sourceAsset('aulet/SA_Cam-03(Night).jpg'),
+      sourceAsset('aulet/_SA_Cam-4.jpg'),
+      sourceAsset('aulet/Cam-05.jpg'),
+      sourceAsset('aulet/Cam-11(kommercia).jpg'),
+      sourceAsset('aulet/DJI_0488.jpg'),
+    ],
+  },
+  besagash: {
+    hero: sourceAsset('besagash/0012b.jpg'),
+    gallery: [
+      sourceAsset('besagash/001BA001.jpg'),
+      sourceAsset('besagash/00223.jpg'),
+      sourceAsset('besagash/002BA001.jpg'),
+      sourceAsset('besagash/0031b.jpg'),
+      sourceAsset('besagash/0041b.jpg'),
+      sourceAsset('besagash/005b.jpg'),
+    ],
+  },
+  enesai: {
+    hero: sourceAsset('enesai/view_01.jpg'),
+    gallery: [
+      sourceAsset('enesai/view_02.jpg'),
+      sourceAsset('enesai/view_02,1.jpg'),
+      sourceAsset('enesai/View_02,2.jpg'),
+      sourceAsset('enesai/view_09.jpg'),
+    ],
+  },
+  'everest-boulevard': {
+    hero: sourceAsset('everest-boulevard/bird_boulevard.jpg'),
+    gallery: [
+      sourceAsset('everest-boulevard/07_view.jpg'),
+      sourceAsset('everest-boulevard/KMP_02.jpg'),
+      sourceAsset('everest-boulevard/KMP.jpg'),
+      sourceAsset('everest-boulevard/View_01 (2).jpg'),
+      sourceAsset('everest-boulevard/View_02 (2).jpg'),
+      sourceAsset('everest-boulevard/View_04 (1).jpg'),
+      sourceAsset('everest-boulevard/View_05 (1).jpg'),
+      sourceAsset('everest-boulevard/View_06 (1).jpg'),
+      sourceAsset('everest-boulevard/View_06_day.jpg'),
+      sourceAsset('everest-boulevard/view_08_01.jpg'),
+    ],
+  },
+  'family-club': {
+    hero: sourceAsset('family-club/3.jpg'),
+    gallery: [
+      sourceAsset('family-club/4.jpg'),
+      sourceAsset('family-club/5.jpg'),
+      sourceAsset('family-club/1 (1).jpg'),
+      sourceAsset('family-club/2 (1).jpg'),
+    ],
+  },
+  'family-comfort': {
+    hero: sourceAsset('family-comfort/1_F.jpg'),
+    gallery: [
+      sourceAsset('family-comfort/2_F.jpg'),
+      sourceAsset('family-comfort/3_F (1).jpg'),
+      sourceAsset('family-comfort/4_F (2).jpg'),
+      sourceAsset('family-comfort/5_F.jpg'),
+      sourceAsset('family-comfort/6_F.jpg'),
+    ],
+  },
+  'hayat-city': {
+    hero: sourceAsset('hayat-city/view_12.jpg'),
+    gallery: [
+      sourceAsset('hayat-city/view_01 (4).jpg'),
+      sourceAsset('hayat-city/view_02 (4).jpg'),
+      sourceAsset('hayat-city/view_03 (2).jpg'),
+      sourceAsset('hayat-city/view_04 (2).jpg'),
+      sourceAsset('hayat-city/view_05 (2).jpg'),
+      sourceAsset('hayat-city/view_06 (3).jpg'),
+      sourceAsset('hayat-city/view_07 (1).jpg'),
+      sourceAsset('hayat-city/view_08 (1).jpg'),
+      sourceAsset('hayat-city/view_09 (2).jpg'),
+      sourceAsset('hayat-city/view_10 (1).jpg'),
+      sourceAsset('hayat-city/view_11 (1).jpg'),
+    ],
+  },
+  'hayat-park': {
+    hero: sourceAsset('hayat-park/01HP001.jpg'),
+    gallery: [
+      sourceAsset('hayat-park/02HP001.jpg'),
+      sourceAsset('hayat-park/011BAG010.jpg'),
+      sourceAsset('hayat-park/020BAG002.jpg'),
+      sourceAsset('hayat-park/030BAG002.jpg'),
+      sourceAsset('hayat-park/040BAG002.jpg'),
+      sourceAsset('hayat-park/050BAG020.jpg'),
+    ],
+  },
+  'high-garden': {
+    hero: sourceAsset('high-garden/GPIMR005.jpg'),
+    gallery: [
+      sourceAsset('high-garden/003IMR006.jpg'),
+      sourceAsset('high-garden/004IMR006.jpg'),
+      sourceAsset('high-garden/008IMR003.jpg'),
+    ],
+  },
+  'jenys-judo-center': {
+    hero: sourceAsset('jenys-judo-center/Bird_View_near_3.jpg'),
+    gallery: [
+      sourceAsset('jenys-judo-center/03b.jpg'),
+      sourceAsset('jenys-judo-center/05.jpg'),
+      sourceAsset('jenys-judo-center/06_2.jpg'),
+      sourceAsset('jenys-judo-center/07.jpg'),
+      sourceAsset('jenys-judo-center/08.jpg'),
+      sourceAsset('jenys-judo-center/11_D.jpg'),
+      sourceAsset('jenys-judo-center/11_N.jpg'),
+      sourceAsset('jenys-judo-center/16-2_D_2.jpg'),
+      sourceAsset('jenys-judo-center/19_D_2.jpg'),
+      sourceAsset('jenys-judo-center/2_D.jpg'),
+    ],
+  },
+  jezkazgan: {
+    hero: sourceAsset('jezkazgan/view_01_3000.jpg'),
+    gallery: [
+      sourceAsset('jezkazgan/view_02_3000.jpg'),
+      sourceAsset('jezkazgan/view_03_3000.jpg'),
+      sourceAsset('jezkazgan/view_05_3000.jpg'),
+      sourceAsset('jezkazgan/view_06_3000.jpg'),
+      sourceAsset('jezkazgan/Front_01_Interactive LightMix.jpg'),
+      sourceAsset('jezkazgan/commercia_A01_Interactive LightMix.jpg'),
+    ],
+  },
+  monterosa: {
+    hero: sourceAsset('monterosa/Monte_1.2.1_F.jpg'),
+    gallery: [
+      sourceAsset('monterosa/view_03.jpg'),
+      sourceAsset('monterosa/view_04.jpg'),
+      sourceAsset('monterosa/view_05.jpg'),
+      sourceAsset('monterosa/view_06.jpg'),
+      sourceAsset('monterosa/view_01 (1).jpg'),
+      sourceAsset('monterosa/view_02 (1).jpg'),
+    ],
+  },
+  'mountain-drive': {
+    hero: sourceAsset('mountain-drive/cam3_F.jpg'),
+    gallery: [
+      sourceAsset('mountain-drive/cam4_F.jpg'),
+      sourceAsset('mountain-drive/viz_offis2_.jpg'),
+      sourceAsset('mountain-drive/cam2_F (2).jpg'),
+    ],
+  },
+  'munar-tau': {
+    hero: sourceAsset('munar-tau/view_01_10000_final.jpg'),
+    gallery: [
+      sourceAsset('munar-tau/view_03_10000_final.jpg'),
+      sourceAsset('munar-tau/view_04_10000_final.jpg'),
+      sourceAsset('munar-tau/view_05_10000_final.jpg'),
+      sourceAsset('munar-tau/view_07_10000_final.jpg'),
+    ],
+  },
+  'nova-23': {
+    hero: sourceAsset('nova-23/view_01_5000_10.02.jpg'),
+    gallery: [
+      sourceAsset('nova-23/view_02_5000_14.02.jpg'),
+      sourceAsset('nova-23/view_03_5000_14.02.jpg'),
+      sourceAsset('nova-23/view_03_5000_14.02_1111111.jpg'),
+    ],
+  },
+  'nova-park': {
+    hero: sourceAsset('nova-park/cam_002_eyeview_front_brick.jpg'),
+    gallery: [
+      sourceAsset('nova-park/cam_001_eyeview_dvor_wood.jpg'),
+      sourceAsset('nova-park/cam_003_front noch.jpg'),
+      sourceAsset('nova-park/cam_004_eyeview_wood.jpg'),
+      sourceAsset('nova-park/cam_005_eyeview_brick.jpg'),
+      sourceAsset('nova-park/cam_006_dvor_brick.jpg'),
+      sourceAsset('nova-park/cam_007_alley_wood.jpg'),
+    ],
+  },
+  'nova-village': {
+    hero: sourceAsset('nova-village/view_06_ptichka.jpg'),
+    gallery: [
+      sourceAsset('nova-village/view_01_d2.jpg'),
+      sourceAsset('nova-village/view_01_d3.jpg'),
+      sourceAsset('nova-village/view_02_d1.jpg'),
+      sourceAsset('nova-village/view_02_d2.jpg'),
+      sourceAsset('nova-village/view_02_d3.jpg'),
+      sourceAsset('nova-village/view_03_d2.jpg'),
+    ],
+  },
+  tausamal: {
+    hero: sourceAsset('tausamal/view_07.jpg'),
+    gallery: [
+      sourceAsset('tausamal/view_08.jpg'),
+      sourceAsset('tausamal/view_10.jpg'),
+      sourceAsset('tausamal/view_11.jpg'),
+      sourceAsset('tausamal/view_04_Dron.jpg'),
+      sourceAsset('tausamal/view_05_Dron.jpg'),
+      sourceAsset('tausamal/view_01 (3).jpg'),
+      sourceAsset('tausamal/view_02 (3).jpg'),
+      sourceAsset('tausamal/view_03 (1).jpg'),
+      sourceAsset('tausamal/view_06 (2).jpg'),
+      sourceAsset('tausamal/view_09 (1).jpg'),
+    ],
+  },
+  'terrenkur-terrace': {
+    hero: sourceAsset('terrenkur-terrace/ROAD_VIEW_2.jpg'),
+    gallery: [
+      sourceAsset('terrenkur-terrace/BIRD WIEV 1_2.jpg'),
+      sourceAsset('terrenkur-terrace/BIRD WIEV 2_2_.jpg'),
+      sourceAsset('terrenkur-terrace/NIGHT (1).jpg'),
+      sourceAsset('terrenkur-terrace/PLAYGROUND_1.jpg'),
+      sourceAsset('terrenkur-terrace/PLAYGROUND 2_opt_2_.jpg'),
+      sourceAsset('terrenkur-terrace/SPORT_opt_3.jpg'),
+      sourceAsset('terrenkur-terrace/TERRACCE_opt_2_.jpg'),
+      sourceAsset('terrenkur-terrace/YARD_1_2.jpg'),
+    ],
+  },
 };
 
 const projectThumbnailMap = {
@@ -119,6 +369,28 @@ const projectThumbnailMap = {
   biography: publicAsset('biography/New_01.jpg'),
   naukograd: publicAsset('naukograd/pos_tuzusai.jpg'),
   'raddison-turkestan': publicAsset('raddison-turkestan/01_Tehno_Park.jpg'),
+  yubileynyy: sourceAsset('Yubileynyy/21.04_f.jpg'),
+  'alatau-village': sourceAsset('alatau-village/06.07_23C1_f.jpg'),
+  'arkon-city': sourceAsset('arkon-city/Bird_view.jpg'),
+  aulet: sourceAsset('aulet/_SA_Cam-01.jpg'),
+  besagash: sourceAsset('besagash/0012b.jpg'),
+  enesai: sourceAsset('enesai/view_01.jpg'),
+  'everest-boulevard': sourceAsset('everest-boulevard/bird_boulevard.jpg'),
+  'family-club': sourceAsset('family-club/3.jpg'),
+  'family-comfort': sourceAsset('family-comfort/1_F.jpg'),
+  'hayat-city': sourceAsset('hayat-city/view_12.jpg'),
+  'hayat-park': sourceAsset('hayat-park/01HP001.jpg'),
+  'high-garden': sourceAsset('high-garden/GPIMR005.jpg'),
+  'jenys-judo-center': sourceAsset('jenys-judo-center/Bird_View_near_3.jpg'),
+  jezkazgan: sourceAsset('jezkazgan/view_01_3000.jpg'),
+  monterosa: sourceAsset('monterosa/Monte_1.2.1_F.jpg'),
+  'mountain-drive': sourceAsset('mountain-drive/cam3_F.jpg'),
+  'munar-tau': sourceAsset('munar-tau/view_01_10000_final.jpg'),
+  'nova-23': sourceAsset('nova-23/view_01_5000_10.02.jpg'),
+  'nova-park': sourceAsset('nova-park/cam_002_eyeview_front_brick.jpg'),
+  'nova-village': sourceAsset('nova-village/view_06_ptichka.jpg'),
+  tausamal: sourceAsset('tausamal/view_07.jpg'),
+  'terrenkur-terrace': sourceAsset('terrenkur-terrace/ROAD_VIEW_2.jpg'),
 };
 
 const projectImages = computed(() => projectImageGroups[projectSlug.value] || projectImageGroups.meliora);
@@ -126,30 +398,34 @@ const projectSliderImages = computed(() => [projectImages.value.hero, ...project
 const projectCards = computed(() => t.value.projects.items.map((project, index) => {
   const slug = project.href.replace(/^\//, '');
   const image = projectThumbnailMap[slug] || projectThumbs[index % projectThumbs.length];
-  const categoryLabel = project.categories.map(c => t.value.categoryLabels[c]).join(', ');
-  return { ...project, image, categoryLabel };
+  const types = project.types ?? project.categories ?? [];
+  const typeLabel = types.map((type) => t.value.categoryLabels[type]).join(', ');
+  return { ...project, types, image, typeLabel };
 }));
 const featuredProjectCards = computed(() => projectCards.value.slice(0, 6));
 const filteredProjectCards = computed(() => {
-  if (!activeFilters.value.length) return projectCards.value;
-  return projectCards.value.filter(p => p.categories.some(c => activeFilters.value.includes(c)));
+  if (activeType.value === 'all') return projectCards.value;
+  return projectCards.value.filter((project) => project.types.includes(activeType.value));
 });
 
-function toggleFilter(slug) {
-  const idx = activeFilters.value.indexOf(slug);
-  if (idx === -1) activeFilters.value.push(slug);
-  else activeFilters.value.splice(idx, 1);
+const filterTabs = computed(() => [
+  { value: 'all', label: t.value.projects.allFilter },
+  ...projectTypeOrder.map((value) => ({ value, label: t.value.categoryLabels[value] })),
+]);
+
+function setFilter(type) {
+  activeType.value = type;
 }
 
 const aboutImages = {
-  left: publicAsset('sections/about-copy/residential-exterior.jpg'),
-  center: publicAsset('sections/about-copy/mixed-use-exterior.jpg'),
-  right: publicAsset('sections/about-copy/waterfront-residential.jpg'),
+  left: sourceAsset('sections/about-copy/1.jpg'),
+  center: sourceAsset('sections/about-copy/2.jpg'),
+  right: sourceAsset('sections/about-copy/3.jpg'),
 };
 
 const aboutPageImages = {
-  hero: publicAsset('sections/about/team.jpg'),
-  story: publicAsset('sections/about/team2.jpg'),
+  hero: sourceAsset('sections/about/team.jpg'),
+  story: sourceAsset('sections/about/team2.jpg'),
 };
 
 const aboutFeaturedProjects = computed(() => projectCards.value.slice(0, 2));
@@ -462,6 +738,12 @@ watch(projectSlug, () => {
   nextTick(startProjectSlider);
 });
 
+watch(activeType, () => {
+  nextTick(() => {
+    observeAnimatedElements();
+  });
+});
+
 watch([isContactsPage, currentLanguage], () => {
   contactsMapStatus.value = 'idle';
   nextTick(initContactsMap);
@@ -550,8 +832,7 @@ onUnmounted(() => {
             </a>
             <div class="project-meta">
               <h3>{{ project.title }}</h3>
-              <p>{{ project.categoryLabel }}</p>
-              <a :href="project.href">{{ t.projects.view }}</a>
+              <p>{{ project.typeLabel }}</p>
             </div>
           </article>
         </div>
@@ -710,8 +991,7 @@ onUnmounted(() => {
               </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
-                <p>{{ project.categoryLabel }}</p>
-                <a :href="project.href">{{ t.projects.view }}</a>
+                <p>{{ project.typeLabel }}</p>
               </div>
             </article>
           </div>
@@ -811,25 +1091,21 @@ onUnmounted(() => {
         </div>
 
         <div class="projects-filter" data-animate>
-          <button type="button" class="filter-btn" :class="{ 'is-active': !activeFilters.length }"
-            @click="activeFilters = []">{{ t.projects.allFilter }}</button>
-          <button v-for="slug in categoryOrder" :key="slug" type="button" class="filter-btn"
-            :class="{ 'is-active': activeFilters.includes(slug) }" @click="toggleFilter(slug)">{{ t.categoryLabels[slug]
-            }}</button>
+          <button v-for="tab in filterTabs" :key="tab.value" type="button" class="filter-btn"
+            :class="{ 'is-active': activeType === tab.value }" @click="setFilter(tab.value)">{{ tab.label }}</button>
         </div>
 
         <div class="project-grid projects-page-grid">
           <article v-for="project in filteredProjectCards" :key="project.title" class="project-card" data-animate>
-            <a class="media-frame" :href="project.href">
-              <img :src="project.image" :alt="project.alt">
-            </a>
-            <div class="project-meta">
-              <h3>{{ project.title }}</h3>
-              <p>{{ project.categoryLabel }}</p>
-              <a v-if="project.href !== '#'" :href="project.href">{{ t.projects.view }}</a>
-            </div>
-          </article>
-        </div>
+              <a class="media-frame" :href="project.href">
+                <img :src="project.image" :alt="project.alt">
+              </a>
+              <div class="project-meta">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.typeLabel }}</p>
+              </div>
+            </article>
+          </div>
       </section>
     </template>
 
@@ -912,8 +1188,7 @@ onUnmounted(() => {
               </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
-                <p>{{ project.categoryLabel }}</p>
-                <a :href="project.href">{{ t.projects.view }}</a>
+                <p>{{ project.typeLabel }}</p>
               </div>
             </article>
           </div>
