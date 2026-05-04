@@ -2477,7 +2477,7 @@ img {
     --pad: 18px;
   }
   .hero-media picture {
-    min-height: 50vh;
+    min-height: clamp(50vh,63vh,70vh);
   }
   .site-header {
     padding-block: 14px;
