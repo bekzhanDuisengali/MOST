@@ -2476,7 +2476,9 @@ img {
     --header-height: 66px;
     --pad: 18px;
   }
-  
+  .hero-media picture {
+    height: 50vh;
+  }
   .site-header {
     padding-block: 14px;
     mix-blend-mode: normal;
@@ -2731,9 +2733,6 @@ img {
   .project-slider-window {
     height: 74vh;
     min-height: 480px;
-  }
-  .media-frame {
-    height: 100vh;
   }
   .project-slider-panel.is-previous,
   .project-slider-panel.is-next {

@@ -916,7 +916,10 @@ onUnmounted(() => {
           <p>{{ t.contact.text }}</p>
         </div>
 
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" action="https://formsubmit.co/sales@most-a.com" method="post">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New message from MOST Architects">
+          <input type="hidden" name="_template" value="table">
           <p class="contact-form-note">{{ t.contact.note }}</p>
           <label>
             <input type="text" name="name" :placeholder="t.contact.name" autocomplete="name" required>
@@ -1045,7 +1048,11 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <form class="contacts-page-form" action="#" method="post">
+          <form class="contacts-page-form" action="https://formsubmit.co/sales@most-a.com" method="post"
+            enctype="multipart/form-data">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New message from MOST Architects">
+            <input type="hidden" name="_template" value="table">
             <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
             <label>
               <input type="text" name="name" :placeholder="t.contactsPage.namePlaceholder" autocomplete="name" required>
