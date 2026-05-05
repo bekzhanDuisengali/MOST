@@ -41,7 +41,7 @@ const heroMobileImage = publicAsset('meliora/evening-front.webp');
 const heroSlides = [
   sourceAsset('View_02,2.webp'),
   publicAsset('meliora/evening-front.webp'),
-  publicAsset('biography/New_01.webp'),
+  publicAsset('naukograd/02_lib_night.webp'),
   publicAsset('naukograd/Bird_night_02_02.webp'),
   publicAsset('raddison-turkestan/Final_view_A02_night_logo_Radisson_1.webp'),
 ];
