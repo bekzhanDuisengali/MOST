@@ -68,6 +68,7 @@ img {
 }
 
 [data-animate].is-visible {
+  margin-top: 60px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -376,20 +377,23 @@ img {
   object-fit: cover;
   opacity: 0;
   z-index: 0;
-  transform: scale(1.06);
-  transition: opacity 1.8s cubic-bezier(.4, 0, .2, 1), transform 6s cubic-bezier(.25, .46, .45, .94);
+  transform: scale(1.07);
+  will-change: opacity, transform;
+  transition: opacity 1.4s cubic-bezier(.4, 0, .2, 1), transform 0.1s;
 }
 
 .hero-slide-img.is-prev {
-  opacity: 1;
+  opacity: 0;
   z-index: 1;
-  transform: scale(1.06);
+  transform: scale(1);
+  transition: opacity 2s cubic-bezier(.4, 0, .6, 1), transform 0.1s;
 }
 
 .hero-slide-img.is-active {
   opacity: 1;
   z-index: 2;
   transform: scale(1);
+  transition: opacity 1.4s cubic-bezier(.4, 0, .2, 1), transform 8s cubic-bezier(0, .5, .15, 1);
 }
 
 .hero-media::before {
@@ -481,7 +485,7 @@ img {
 
 .hero-tagline {
   margin: clamp(16px, 2vw, 28px) 0 0;
-  color: rgba(255, 255, 255, .72);
+  color: rgba(255, 255, 255, .92);
   font-size: clamp(15px, 1.4vw, 22px);
   font-style: italic;
   letter-spacing: .03em;
@@ -1264,9 +1268,6 @@ img {
   overflow: hidden;
 }
 
-.project-page {
-  background: #f4f1ea;
-}
 
 .project-hero {
   position: relative;
@@ -1822,10 +1823,17 @@ img {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.about-page-contact {
+.about-page-contact,
+.project-contact {
   max-width: 680px;
   margin: 0 auto;
   padding-top: clamp(40px, 6vw, 80px);
+}
+
+.project-contact-form {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 .contacts-page {

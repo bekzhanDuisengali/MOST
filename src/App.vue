@@ -619,7 +619,7 @@ function startHeroSlider() {
   heroSliderTimer = window.setInterval(() => {
     prevHeroSlide.value = activeHeroSlide.value;
     activeHeroSlide.value = (activeHeroSlide.value + 1) % heroSlides.length;
-  }, 5400);
+  }, 7500);
 }
 
 function observeAnimatedElements() {
@@ -1298,6 +1298,42 @@ onUnmounted(() => {
               </div>
             </article>
           </div>
+        </section>
+
+        <section class="project-contact section-pad" data-animate>
+          <form class="contacts-page-form project-contact-form" action="https://formsubmit.co/sales@most-a.com" method="post"
+            enctype="multipart/form-data">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New message from MOST Architects">
+            <input type="hidden" name="_template" value="table">
+            <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
+            <label>
+              <input type="text" name="name" :placeholder="t.contactsPage.namePlaceholder" autocomplete="name" required>
+            </label>
+            <label class="contacts-page-form-select-wrap">
+              <select name="service" required>
+                <option value="" disabled selected>{{ t.contactsPage.serviceLabel }}</option>
+                <option v-for="opt in t.contactsPage.serviceOptions" :key="opt" :value="opt">{{ opt }}</option>
+              </select>
+            </label>
+            <label>
+              <textarea name="description" :placeholder="t.contactsPage.descPlaceholder" rows="4"
+                autocomplete="off"></textarea>
+            </label>
+            <label class="contacts-page-form-file">
+              <input type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+              </svg>
+              <span>{{ t.contactsPage.filePlaceholder }}</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="privacy" checked required>
+              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{ t.contact.privacyLink }}</a></span>
+            </label>
+            <button class="submit-button" type="submit">{{ t.contactsPage.submit }}</button>
+          </form>
         </section>
       </article>
     </template>
