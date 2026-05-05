@@ -7,10 +7,13 @@ const isHeaderSolid = ref(false);
 const currentLanguage = ref('en');
 const currentPath = ref('/');
 const activeProjectSlide = ref(0);
+const activeHeroSlide = ref(0);
+const prevHeroSlide = ref(null);
 const contactsMapStatus = ref('idle');
 const activeType = ref('all');
 let revealObserver;
 let projectSliderTimer;
+let heroSliderTimer;
 const homeHeroEl = ref(null);
 const homeProjectsEl = ref(null);
 
@@ -33,84 +36,91 @@ const navItems = computed(() => [
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 const sourceAsset = (path) => new URL(`./public/${path.replace(/^\/+/, '')}`, import.meta.url).href;
 const logoWhite = publicAsset('white.svg');
-const heroImage = sourceAsset('View_02,2.jpg');
-const heroMobileImage = sourceAsset('View_02,2.jpg');
+const heroImage = sourceAsset('View_02,2.webp');
+const heroMobileImage = publicAsset('meliora/evening-front.webp');
+const heroSlides = [
+  sourceAsset('View_02,2.webp'),
+  publicAsset('meliora/evening-front.webp'),
+  publicAsset('biography/New_01.webp'),
+  publicAsset('naukograd/Bird_night_02_02.webp'),
+  publicAsset('raddison-turkestan/Final_view_A02_night_logo_Radisson_1.webp'),
+];
 
 const serviceImages = [
-  sourceAsset('sections/services/1.jpg'),
-  sourceAsset('sections/services/2.jpg'),
-  sourceAsset('sections/services/3.jpg'),
-  sourceAsset('sections/services/4.jpg'),
+  sourceAsset('sections/services/1.webp'),
+  sourceAsset('sections/services/2.webp'),
+  sourceAsset('sections/services/3.webp'),
+  sourceAsset('sections/services/4.webp'),
 ];
 
 const projectThumbs = [
-  publicAsset('meliora/general-road.jpg'),
-  sourceAsset('sections/about-copy/1.jpg'),
-  sourceAsset('sections/services/3.jpg'),
-  sourceAsset('sections/about-copy/2.jpg'),
-  sourceAsset('sections/services/2.jpg'),
-  sourceAsset('sections/about-copy/3.jpg'),
+  publicAsset('meliora/general-road.webp'),
+  sourceAsset('sections/about-copy/1.webp'),
+  sourceAsset('sections/services/3.webp'),
+  sourceAsset('sections/about-copy/2.webp'),
+  sourceAsset('sections/services/2.webp'),
+  sourceAsset('sections/about-copy/3.webp'),
 ];
 
 const projectImageGroups = {
   meliora: {
-    hero: publicAsset('meliora/general-road.jpg'),
+    hero: publicAsset('meliora/general-road.webp'),
     gallery: [
-      publicAsset('meliora/general-park.jpg'),
-      publicAsset('meliora/evening-front.jpg'),
-      publicAsset('meliora/ev-view-mt-warm.jpg'),
-      publicAsset('meliora/front-terras.jpg'),
-      publicAsset('meliora/back-ter.jpg'),
-      publicAsset('meliora/0-f.jpg'),
-      publicAsset('meliora/3-f.jpg'),
-      publicAsset('meliora/4-f.jpg'),
-      publicAsset('meliora/7-f.jpg'),
-      publicAsset('meliora/11-f.jpg'),
-      publicAsset('meliora/12-f.jpg'),
+      publicAsset('meliora/general-park.webp'),
+      publicAsset('meliora/evening-front.webp'),
+      publicAsset('meliora/ev-view-mt-warm.webp'),
+      publicAsset('meliora/front-terras.webp'),
+      publicAsset('meliora/back-ter.webp'),
+      publicAsset('meliora/0-f.webp'),
+      publicAsset('meliora/3-f.webp'),
+      publicAsset('meliora/4-f.webp'),
+      publicAsset('meliora/7-f.webp'),
+      publicAsset('meliora/11-f.webp'),
+      publicAsset('meliora/12-f.webp'),
     ],
   },
   biography: {
-    hero: publicAsset('biography/New_01.jpg'),
+    hero: publicAsset('biography/New_01.webp'),
     gallery: [
-      publicAsset('biography/New_02.jpg'),
-      publicAsset('biography/View_02_1.jpg'),
-      publicAsset('biography/View_02_2.jpg'),
-      publicAsset('biography/com_02_day.jpg'),
-      publicAsset('biography/Commerce.jpg'),
-      publicAsset('biography/Commerce_02.jpg'),
-      publicAsset('biography/Commerce_Alley.jpg'),
-      publicAsset('biography/bird_commerce_LOGO_19-08-2025.jpg'),
-      publicAsset('biography/bird_view_04-25-02-2025.jpg'),
+      publicAsset('biography/New_02.webp'),
+      publicAsset('biography/View_02_1.webp'),
+      publicAsset('biography/View_02_2.webp'),
+      publicAsset('biography/com_02_day.webp'),
+      publicAsset('biography/Commerce.webp'),
+      publicAsset('biography/Commerce_02.webp'),
+      publicAsset('biography/Commerce_Alley.webp'),
+      publicAsset('biography/bird_commerce_LOGO_19-08-2025.webp'),
+      publicAsset('biography/bird_view_04-25-02-2025.webp'),
     ],
   },
   naukograd: {
-    hero: publicAsset('naukograd/pos_tuzusai.jpg'),
+    hero: publicAsset('naukograd/pos_tuzusai.webp'),
     gallery: [
-      publicAsset('naukograd/01_Tehno_Park.jpg'),
-      publicAsset('naukograd/Tekhno_Park_02.jpg'),
-      publicAsset('naukograd/02_lib_night.jpg'),
-      publicAsset('naukograd/lib_day.jpg'),
-      publicAsset('naukograd/library.jpg'),
-      publicAsset('naukograd/Bird_night_02_02.jpg'),
-      publicAsset('naukograd/Bird_view_Lilrary.jpg'),
-      publicAsset('naukograd/Bus_view.jpg'),
-      publicAsset('naukograd/Univer_01_2.jpg'),
-      publicAsset('naukograd/Univer_02_1.jpg'),
+      publicAsset('naukograd/01_Tehno_Park.webp'),
+      publicAsset('naukograd/Tekhno_Park_02.webp'),
+      publicAsset('naukograd/02_lib_night.webp'),
+      publicAsset('naukograd/lib_day.webp'),
+      publicAsset('naukograd/library.webp'),
+      publicAsset('naukograd/Bird_night_02_02.webp'),
+      publicAsset('naukograd/Bird_view_Lilrary.webp'),
+      publicAsset('naukograd/Bus_view.webp'),
+      publicAsset('naukograd/Univer_01_2.webp'),
+      publicAsset('naukograd/Univer_02_1.webp'),
     ],
   },
   'raddison-turkestan': {
-    hero: publicAsset('raddison-turkestan/pos_tuzusai.jpg'),
+    hero: publicAsset('raddison-turkestan/Final_view_A02_night_logo_Radisson_1.webp'),
     gallery: [
-      publicAsset('raddison-turkestan/01_Tehno_Park.jpg'),
-      publicAsset('raddison-turkestan/Tekhno_Park_02.jpg'),
-      publicAsset('raddison-turkestan/02_lib_night.jpg'),
-      publicAsset('raddison-turkestan/lib_day.jpg'),
-      publicAsset('raddison-turkestan/library.jpg'),
-      publicAsset('raddison-turkestan/Bird_night_02_02.jpg'),
-      publicAsset('raddison-turkestan/Bird_view_Lilrary.jpg'),
-      publicAsset('raddison-turkestan/Bus_view.jpg'),
-      publicAsset('raddison-turkestan/Univer_01_2.jpg'),
-      publicAsset('raddison-turkestan/Univer_02_1.jpg'),
+      publicAsset('raddison-turkestan/Final_view_A02_night_logo_Radisson_1.webp'),
+      publicAsset('raddison-turkestan/Final_front_view_A01_Variant_Yura_1.webp'),
+      publicAsset('raddison-turkestan/Final_view_A02_logo_Radisson_1.webp'),
+      publicAsset('raddison-turkestan/Final_view_A02_night_Variant_Yura_logo_Radisson_1.webp'),
+      publicAsset('raddison-turkestan/Final_view_A03_1.webp'),
+      publicAsset('raddison-turkestan/Final_view_A05_01_1.webp'),
+      publicAsset('raddison-turkestan/Final_view_A07_1.webp'),
+      publicAsset('raddison-turkestan/Final_view_A12_1.webp'),
+      publicAsset('raddison-turkestan/fr_view_1.webp'),
+      publicAsset('raddison-turkestan/tr_bird_1.webp'),
     ],
   },
   yubileynyy: {
@@ -251,7 +261,7 @@ const projectImageGroups = {
     ],
   },
   'jenys-judo-center': {
-    hero: sourceAsset('jenys-judo-center/Bird_View_near_3.jpg'),
+    hero: sourceAsset('jenys-judo-center/19_D_2.jpg'),
     gallery: [
       sourceAsset('jenys-judo-center/03b.jpg'),
       sourceAsset('jenys-judo-center/05.jpg'),
@@ -263,6 +273,33 @@ const projectImageGroups = {
       sourceAsset('jenys-judo-center/16-2_D_2.jpg'),
       sourceAsset('jenys-judo-center/19_D_2.jpg'),
       sourceAsset('jenys-judo-center/2_D.jpg'),
+    ],
+  },
+  'soldier-lake': {
+    hero: sourceAsset('soldier-lake/008_01.jpg'),
+    gallery: [
+      sourceAsset('soldier-lake/001.jpg'),
+      sourceAsset('soldier-lake/005_01.jpg'),
+      sourceAsset('soldier-lake/007.jpg'),
+      sourceAsset('soldier-lake/009.jpg'),
+      sourceAsset('soldier-lake/007_01.jpg'),
+    ],
+  },
+  ippodrom: {
+    hero: sourceAsset('ippodrom/ippodrom_bird01.jpg'),
+    gallery: [
+      sourceAsset('ippodrom/tri_01_var2.jpg'),
+      sourceAsset('ippodrom/tri_02_back_var2.jpg'),
+      sourceAsset('ippodrom/admin_view.jpg'),
+      sourceAsset('ippodrom/parking_hippodrome.jpg'),
+      sourceAsset('ippodrom/bird_view (1).jpg'),
+    ],
+  },
+  fok: {
+    hero: sourceAsset('fok/02_view.jpg'),
+    gallery: [
+      sourceAsset('fok/001 (1).jpg'),
+      sourceAsset('fok/003 (1).jpg'),
     ],
   },
   jezkazgan: {
@@ -365,10 +402,10 @@ const projectImageGroups = {
 };
 
 const projectThumbnailMap = {
-  meliora: publicAsset('meliora/general-road.jpg'),
-  biography: publicAsset('biography/New_01.jpg'),
-  naukograd: publicAsset('naukograd/pos_tuzusai.jpg'),
-  'raddison-turkestan': publicAsset('raddison-turkestan/01_Tehno_Park.jpg'),
+  meliora: publicAsset('meliora/general-road.webp'),
+  biography: publicAsset('biography/New_01.webp'),
+  naukograd: publicAsset('naukograd/Bird_night_02_02.webp'),
+  'raddison-turkestan': publicAsset('raddison-turkestan/Final_view_A02_night_logo_Radisson_1.webp'),
   yubileynyy: sourceAsset('Yubileynyy/21.04_f.jpg'),
   'alatau-village': sourceAsset('alatau-village/06.07_23C1_f.jpg'),
   'arkon-city': sourceAsset('arkon-city/Bird_view.jpg'),
@@ -381,7 +418,10 @@ const projectThumbnailMap = {
   'hayat-city': sourceAsset('hayat-city/view_12.jpg'),
   'hayat-park': sourceAsset('hayat-park/01HP001.jpg'),
   'high-garden': sourceAsset('high-garden/GPIMR005.jpg'),
-  'jenys-judo-center': sourceAsset('jenys-judo-center/Bird_View_near_3.jpg'),
+  'jenys-judo-center': sourceAsset('jenys-judo-center/19_D_2.jpg'),
+  'soldier-lake': sourceAsset('soldier-lake/008_01.jpg'),
+  ippodrom: sourceAsset('ippodrom/ippodrom_bird01.jpg'),
+  fok: sourceAsset('fok/02_view.jpg'),
   jezkazgan: sourceAsset('jezkazgan/view_01_3000.jpg'),
   monterosa: sourceAsset('monterosa/Monte_1.2.1_F.jpg'),
   'mountain-drive': sourceAsset('mountain-drive/cam3_F.jpg'),
@@ -418,17 +458,17 @@ function setFilter(type) {
 }
 
 const aboutImages = {
-  left: sourceAsset('sections/about-copy/1.jpg'),
-  center: sourceAsset('sections/about-copy/2.jpg'),
-  right: sourceAsset('sections/about-copy/3.jpg'),
+  left: sourceAsset('sections/about-copy/1.webp'),
+  center: sourceAsset('sections/about-copy/2.webp'),
+  right: sourceAsset('sections/about-copy/3.webp'),
 };
 
 const aboutPageImages = {
-  hero: sourceAsset('sections/about/team.jpg'),
-  story: sourceAsset('sections/about/team2.jpg'),
+  hero: sourceAsset('sections/about/team.webp'),
+  story: sourceAsset('sections/about/team2.webp'),
 };
 
-const aboutFeaturedProjects = computed(() => projectCards.value.slice(0, 2));
+const aboutFeaturedProjects = computed(() => projectCards.value.slice(0, 3));
 const contactsMapEl = ref(null);
 
 function closeMenu() {
@@ -571,6 +611,15 @@ function startProjectSlider() {
   projectSliderTimer = window.setInterval(() => {
     goToProjectSlide(1);
   }, 5200);
+}
+
+function startHeroSlider() {
+  window.clearInterval(heroSliderTimer);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  heroSliderTimer = window.setInterval(() => {
+    prevHeroSlide.value = activeHeroSlide.value;
+    activeHeroSlide.value = (activeHeroSlide.value + 1) % heroSlides.length;
+  }, 5400);
 }
 
 function observeAnimatedElements() {
@@ -738,6 +787,8 @@ watch(projectSlug, () => {
   nextTick(startProjectSlider);
 });
 
+startHeroSlider();
+
 watch(activeType, () => {
   nextTick(() => {
     observeAnimatedElements();
@@ -753,6 +804,7 @@ onUnmounted(() => {
   document.body.classList.remove('menu-open');
   revealObserver?.disconnect();
   window.clearInterval(projectSliderTimer);
+  window.clearInterval(heroSliderTimer);
   document.removeEventListener('click', handleDocumentClick);
   window.removeEventListener('popstate', handlePopState);
   window.removeEventListener('scroll', updateHeaderState);
@@ -805,10 +857,19 @@ onUnmounted(() => {
     <template v-if="!isProjectPage && !isProjectsPage && !isAboutPage && !isContactsPage">
       <section ref="homeHeroEl" class="hero stack-hero" aria-labelledby="hero-title">
         <div class="hero-media media-frame">
-          <picture>
-            <source :srcset="heroMobileImage" media="(max-width: 820px)">
+          <picture class="hero-slide-desktop">
             <img :src="heroImage" :alt="t.hero.alt">
           </picture>
+          <div class="hero-slides-mobile" aria-hidden="true">
+            <img
+              v-for="(slide, i) in heroSlides"
+              :key="slide"
+              :src="slide"
+              :alt="t.hero.alt"
+              class="hero-slide-img"
+              :class="{ 'is-active': i === activeHeroSlide, 'is-prev': i === prevHeroSlide }"
+            >
+          </div>
         </div>
 
         <div class="hero-content section-pad">
@@ -998,6 +1059,44 @@ onUnmounted(() => {
               </div>
             </article>
           </div>
+        </section>
+
+        <section class="about-page-contact section-pad" data-animate>
+          <form class="contacts-page-form" action="https://formsubmit.co/sales@most-a.com" method="post"
+            enctype="multipart/form-data">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New message from MOST Architects">
+            <input type="hidden" name="_template" value="table">
+            <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
+            <label>
+              <input type="text" name="name" :placeholder="t.contactsPage.namePlaceholder" autocomplete="name" required>
+            </label>
+            <label class="contacts-page-form-select-wrap">
+              <select name="service" required>
+                <option value="" disabled selected>{{ t.contactsPage.serviceLabel }}</option>
+                <option v-for="opt in t.contactsPage.serviceOptions" :key="opt" :value="opt">{{ opt }}</option>
+              </select>
+            </label>
+            <label>
+              <textarea name="description" :placeholder="t.contactsPage.descPlaceholder" rows="4"
+                autocomplete="off"></textarea>
+            </label>
+            <label class="contacts-page-form-file">
+              <input type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+              </svg>
+              <span>{{ t.contactsPage.filePlaceholder }}</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="privacy" checked required>
+              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{
+                t.contact.privacyLink }}</a></span>
+            </label>
+            <button class="submit-button" type="submit">{{ t.contactsPage.submit }}</button>
+          </form>
         </section>
       </section>
     </template>
