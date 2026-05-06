@@ -1086,7 +1086,7 @@ img {
 }
 
 .contact[data-animate].is-visible {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .contact.is-visible {
@@ -1893,6 +1893,7 @@ img {
 .about-page-featured-grid {
   margin-top: 0;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 50px;
 }
 
 .about-page-contact,
