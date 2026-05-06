@@ -233,7 +233,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -392,7 +392,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -411,7 +411,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -430,7 +430,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -449,7 +449,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Cottage village' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -468,7 +468,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -487,7 +487,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Jezkazgan, Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Sketch design' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -506,7 +506,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Bishkek, Kyrgyzstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Sketch design' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -525,7 +525,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Cottage village' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -544,7 +544,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -563,7 +563,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -582,7 +582,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Club house' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -601,7 +601,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Cottage village' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -620,7 +620,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -639,7 +639,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Club house' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Sketch design' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -658,7 +658,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Cottage village' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -677,7 +677,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Besagash, Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -696,7 +696,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -715,7 +715,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Residential complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -734,7 +734,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Cottage village' },
           { label: 'Location', value: 'Almaty region, Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -753,7 +753,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Commercial complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Sketch design' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -772,7 +772,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Sports complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Sketch design' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -791,7 +791,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Recreation complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Sketch design' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -815,7 +815,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Equestrian complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, masterplan, visualization' },
         ],
         galleryAlt: [
@@ -839,7 +839,7 @@ export const translations = {
         facts: [
           { label: 'Type', value: 'Sports complex' },
           { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Concept design' },
+          { label: 'Status', value: 'Realized' },
           { label: 'Scope', value: 'Architecture, planning, visualization' },
         ],
         galleryAlt: [
@@ -1052,7 +1052,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: [
@@ -1186,7 +1186,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Hayat Park негізгі экстерьері', 'Hayat Park ауласы', 'Hayat Park фасады', 'Hayat Park кіреберісі', 'Hayat Park биіктен', 'Hayat Park ландшафты', 'Hayat Park бөлшегі'],
@@ -1203,7 +1203,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Monterosa негізгі фасады', 'Monterosa көше көрінісі', 'Monterosa ауласы', 'Monterosa терраса деңгейі', 'Monterosa бөлшегі', 'Monterosa кіреберісі', 'Monterosa биіктен'],
@@ -1220,7 +1220,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Everest Boulevard биіктен', 'Everest Boulevard көше деңгейі', 'Everest Boulevard фасады', 'Everest Boulevard ауласы', 'Everest Boulevard кіреберісі', 'Everest Boulevard бөлшегі', 'Everest Boulevard түнде', 'Everest Boulevard ландшафты', 'Everest Boulevard терраса', 'Everest Boulevard көрінісі', 'Everest Boulevard шолуы'],
@@ -1237,7 +1237,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Коттеджді ауыл' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Nova Village биіктен', 'Nova Village A типі', 'Nova Village B типі', 'Nova Village C типі', 'Nova Village көше', 'Nova Village ландшафты', 'Nova Village бөлшегі'],
@@ -1254,7 +1254,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Aulet негізгі экстерьері', 'Aulet фасад бөлшегі', 'Aulet ауласы', 'Aulet түнде', 'Aulet биіктен', 'Aulet кіреберісі', 'Aulet коммерциялық деңгейі', 'Aulet ландшафты'],
@@ -1271,7 +1271,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Жезқазған, Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Жезқазған негізгі экстерьері', 'Жезқазған көше', 'Жезқазған ауласы', 'Жезқазған фасад бөлшегі', 'Жезқазған кіреберісі', 'Жезқазған түнде', 'Жезқазған коммерция'],
@@ -1288,7 +1288,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Бішкек, Қырғызстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Arkon City биіктен', 'Arkon City қстан', 'Arkon City көше деңгейі', 'Arkon City фасады', 'Arkon City коммерция', 'Arkon City автотұрақ', 'Arkon City ойын алаңы', 'Arkon City қыста', 'Arkon City бөлшегі'],
@@ -1305,7 +1305,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Коттеджді ауыл' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Nova 23 негізгі көрінісі', 'Nova 23 көше', 'Nova 23 коттедж бөлшегі', 'Nova 23 ландшафты'],
@@ -1322,7 +1322,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Мунар Тау негізгі экстерьері', 'Мунар Тау тау көрінісі', 'Мунар Тау фасады', 'Мунар Тау терраса', 'Мунар Тау ландшафты'],
@@ -1339,7 +1339,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Family Club негізгі көрінісі', 'Family Club ауласы', 'Family Club фасады', 'Family Club ойын алаңы', 'Family Club кіреберісі'],
@@ -1356,7 +1356,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Клубтық үй' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Terrenkur Terrace жол көрінісі', 'Terrenkur Terrace биіктен', 'Terrenkur Terrace аэрофото', 'Terrenkur Terrace түнде', 'Terrenkur Terrace ойын алаңы', 'Terrenkur Terrace спорт', 'Terrenkur Terrace терраса', 'Terrenkur Terrace аула'],
@@ -1373,7 +1373,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Коттеджді ауыл' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Таусамал негізгі көрінісі', 'Таусамал көше', 'Таусамал ауласы', 'Таусамал дрон', 'Таусамал дрон 2', 'Таусамал ландшафты', 'Таусамал коттедж', 'Таусамал терраса', 'Таусамал бөлшегі', 'Таусамал шолуы', 'Таусамал кіреберісі'],
@@ -1390,7 +1390,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Юбилейный негізгі фасады', 'Юбилейный ауласы', 'Юбилейный бөлшегі', 'Юбилейный негіз деңгейі', 'Юбилейный кіреберісі', 'Юбилейный шолуы'],
@@ -1407,7 +1407,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Клубтық үй' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['High Garden негізгі экстерьері', 'High Garden фасад бөлшегі', 'High Garden ауласы', 'High Garden ландшафты'],
@@ -1424,7 +1424,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Коттеджді ауыл' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Nova Park алдыңғы көрінісі', 'Nova Park ауласы', 'Nova Park түнде', 'Nova Park ағаш фасады', 'Nova Park кірпіш фасады', 'Nova Park аллея', 'Nova Park бөлшегі'],
@@ -1441,7 +1441,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Бесагаш, Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Бесагаш негізгі экстерьері', 'Бесагаш фасады', 'Бесагаш ауласы', 'Бесагаш көше', 'Бесагаш кіреберісі', 'Бесагаш бөлшегі', 'Бесагаш шолуы'],
@@ -1458,7 +1458,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Hayat City негізгі көрінісі', 'Hayat City биіктен', 'Hayat City көше деңгейі', 'Hayat City ауласы', 'Hayat City фасады', 'Hayat City кіреберісі', 'Hayat City коммерция', 'Hayat City ландшафты', 'Hayat City бөлшегі', 'Hayat City шолуы', 'Hayat City терраса', 'Hayat City түнде'],
@@ -1475,7 +1475,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Тұрғын кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Family Comfort негізгі экстерьері', 'Family Comfort фасады', 'Family Comfort ауласы', 'Family Comfort кіреберісі', 'Family Comfort ландшафты', 'Family Comfort бөлшегі'],
@@ -1492,7 +1492,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Коттеджді ауыл' },
           { label: 'Орналасуы', value: 'Алматы облысы, Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Alatau Village 1 типі', 'Alatau Village 2 типі', 'Alatau Village көше', 'Alatau Village фасады', 'Alatau Village ландшафты', 'Alatau Village бөлшегі', 'Alatau Village ауласы', 'Alatau Village биіктен', 'Alatau Village кіреберісі'],
@@ -1509,7 +1509,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Коммерциялық кешен' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Mountain Drive негізгі фасады', 'Mountain Drive офис', 'Mountain Drive көше', 'Mountain Drive бөлшегі'],
@@ -1526,7 +1526,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Спорт кешені' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: ['Jenys Judo Center биіктен', 'Jenys Judo Center экстерьері', 'Jenys Judo Center фасады', 'Jenys Judo Center кіреберісі', 'Jenys Judo Center залы', 'Jenys Judo Center күндіз', 'Jenys Judo Center түнде', 'Jenys Judo Center бөлшегі', 'Jenys Judo Center шолуы', 'Jenys Judo Center бүйір', 'Jenys Judo Center ландшафты'],
@@ -1543,7 +1543,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Демалыс кешені' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: [
@@ -1567,7 +1567,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Ат спорты кешені' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, мастер-жоспар, визуализация' },
         ],
         galleryAlt: [
@@ -1591,7 +1591,7 @@ export const translations = {
         facts: [
           { label: 'Түрі', value: 'Спорт кешені' },
           { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Концепт-дизайн' },
+          { label: 'Мәртебесі', value: 'Іске асырылған' },
           { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
         ],
         galleryAlt: [
@@ -1804,7 +1804,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: [
@@ -1953,7 +1953,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Hayat Park главный экстерьер', 'Hayat Park двор', 'Hayat Park фасад', 'Hayat Park вход', 'Hayat Park аэрофото', 'Hayat Park ландшафт', 'Hayat Park деталь'],
@@ -1970,7 +1970,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Monterosa главный фасад', 'Monterosa вид с улицы', 'Monterosa двор', 'Monterosa уровень терраc', 'Monterosa деталь', 'Monterosa вход', 'Monterosa аэрофото'],
@@ -1987,7 +1987,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Everest Boulevard аэрофото', 'Everest Boulevard уровень улицы', 'Everest Boulevard фасад', 'Everest Boulevard двор', 'Everest Boulevard вход', 'Everest Boulevard деталь', 'Everest Boulevard ночной вид', 'Everest Boulevard ландшафт', 'Everest Boulevard терраса', 'Everest Boulevard вид', 'Everest Boulevard обзор'],
@@ -2004,7 +2004,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Коттеджный посёлок' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Nova Village аэрофото', 'Nova Village тип A', 'Nova Village тип B', 'Nova Village тип C', 'Nova Village улица', 'Nova Village ландшафт', 'Nova Village деталь'],
@@ -2021,7 +2021,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Aulet главный экстерьер', 'Aulet деталь фасада', 'Aulet двор', 'Aulet ночной вид', 'Aulet аэрофото', 'Aulet вход', 'Aulet коммерческий уровень', 'Aulet ландшафт'],
@@ -2038,7 +2038,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Жезказган, Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Эскизный проект' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Жезказган главный экстерьер', 'Жезказган улица', 'Жезказган двор', 'Жезказган деталь фасада', 'Жезказган вход', 'Жезказган ночной вид', 'Жезказган коммерция'],
@@ -2055,7 +2055,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Бишкек, Кыргызстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Эскизный проект' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Arkon City аэрофото', 'Arkon City птичий вид', 'Arkon City уровень улицы', 'Arkon City фасад', 'Arkon City коммерция', 'Arkon City парковка', 'Arkon City детская площадка', 'Arkon City зима', 'Arkon City деталь'],
@@ -2072,7 +2072,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Коттеджный посёлок' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Nova 23 главный вид', 'Nova 23 улица', 'Nova 23 деталь коттеджа', 'Nova 23 ландшафт'],
@@ -2089,7 +2089,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Мунар Тау главный экстерьер', 'Мунар Тау горный вид', 'Мунар Тау фасад', 'Мунар Тау терраса', 'Мунар Тау ландшафт'],
@@ -2106,7 +2106,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Family Club главный вид', 'Family Club двор', 'Family Club фасад', 'Family Club детская площадка', 'Family Club вход'],
@@ -2123,7 +2123,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Клубный дом' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Terrenkur Terrace вид с дороги', 'Terrenkur Terrace птичий вид', 'Terrenkur Terrace аэрофото', 'Terrenkur Terrace ночной вид', 'Terrenkur Terrace площадка', 'Terrenkur Terrace спорт', 'Terrenkur Terrace терраса', 'Terrenkur Terrace двор'],
@@ -2140,7 +2140,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Коттеджный посёлок' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Таусамал главный вид', 'Таусамал улица', 'Таусамал двор', 'Таусамал дрон', 'Таусамал дрон 2', 'Таусамал ландшафт', 'Таусамал коттедж', 'Таусамал терраса', 'Таусамал деталь', 'Таусамал обзор', 'Таусамал вход'],
@@ -2157,7 +2157,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Юбилейный главный фасад', 'Юбилейный двор', 'Юбилейный деталь', 'Юбилейный цоколь', 'Юбилейный вход', 'Юбилейный обзор'],
@@ -2174,7 +2174,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Клубный дом' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Эскизный проект' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['High Garden главный экстерьер', 'High Garden деталь фасада', 'High Garden двор', 'High Garden ландшафт'],
@@ -2191,7 +2191,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Коттеджный посёлок' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Nova Park главный вид', 'Nova Park двор', 'Nova Park ночной вид', 'Nova Park дерево', 'Nova Park кирпич', 'Nova Park аллея', 'Nova Park деталь'],
@@ -2208,7 +2208,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Бесагаш, Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Бесагаш главный экстерьер', 'Бесагаш фасад', 'Бесагаш двор', 'Бесагаш улица', 'Бесагаш вход', 'Бесагаш деталь', 'Бесагаш обзор'],
@@ -2225,7 +2225,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Hayat City главный вид', 'Hayat City аэрофото', 'Hayat City уровень улицы', 'Hayat City двор', 'Hayat City фасад', 'Hayat City вход', 'Hayat City коммерция', 'Hayat City ландшафт', 'Hayat City деталь', 'Hayat City обзор', 'Hayat City терраса', 'Hayat City ночной вид'],
@@ -2242,7 +2242,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Жилой комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Family Comfort главный экстерьер', 'Family Comfort фасад', 'Family Comfort двор', 'Family Comfort вход', 'Family Comfort ландшафт', 'Family Comfort деталь'],
@@ -2259,7 +2259,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Коттеджный посёлок' },
           { label: 'Локация', value: 'Алматинская область, Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Alatau Village тип 1', 'Alatau Village тип 2', 'Alatau Village улица', 'Alatau Village фасад', 'Alatau Village ландшафт', 'Alatau Village деталь', 'Alatau Village двор', 'Alatau Village аэрофото', 'Alatau Village вход'],
@@ -2276,7 +2276,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Коммерческий комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Эскизный проект' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Mountain Drive главный фасад', 'Mountain Drive офисный объём', 'Mountain Drive улица', 'Mountain Drive деталь'],
@@ -2293,7 +2293,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Спортивный комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Эскизный проект' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: ['Jenys Judo Center птичий вид', 'Jenys Judo Center экстерьер', 'Jenys Judo Center фасад', 'Jenys Judo Center вход', 'Jenys Judo Center зал', 'Jenys Judo Center днём', 'Jenys Judo Center ночью', 'Jenys Judo Center деталь', 'Jenys Judo Center обзор', 'Jenys Judo Center сбоку', 'Jenys Judo Center ландшафт'],
@@ -2310,7 +2310,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Рекреационный комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Эскизный проект' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: [
@@ -2334,7 +2334,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Конноспортивный комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, мастерплан, визуализация' },
         ],
         galleryAlt: [
@@ -2358,7 +2358,7 @@ export const translations = {
         facts: [
           { label: 'Тип', value: 'Спортивный комплекс' },
           { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Концепт-дизайн' },
+          { label: 'Статус', value: 'Реализован' },
           { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
         ],
         galleryAlt: [
