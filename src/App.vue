@@ -9,7 +9,7 @@ const currentPath = ref('/');
 const activeProjectSlide = ref(0);
 const activeHeroSlide = ref(0);
 const prevHeroSlide = ref(null);
-const contactsMapStatus = ref('idle');
+
 const activeType = ref('all');
 let revealObserver;
 let projectSliderTimer;
@@ -443,6 +443,7 @@ const projectCards = computed(() => t.value.projects.items.map((project, index) 
   return { ...project, types, image, typeLabel };
 }));
 const featuredProjectCards = computed(() => projectCards.value.slice(0, 6));
+const moreProjectCards = computed(() => projectCards.value.slice(0, 7));
 const filteredProjectCards = computed(() => {
   if (activeType.value === 'all') return projectCards.value;
   return projectCards.value.filter((project) => project.types.includes(activeType.value));
@@ -469,7 +470,6 @@ const aboutPageImages = {
 };
 
 const aboutFeaturedProjects = computed(() => projectCards.value.slice(0, 3));
-const contactsMapEl = ref(null);
 
 function closeMenu() {
   isMenuOpen.value = false;
@@ -695,78 +695,6 @@ onMounted(() => {
   startProjectSlider();
 });
 
-function loadGoogleMaps(key) {
-  if (!key) return Promise.resolve(null);
-  if (window.google?.maps) return Promise.resolve(window.google.maps);
-
-  contactsMapStatus.value = 'loading';
-
-  return new Promise((resolve) => {
-    const existing = document.querySelector('script[data-google-maps-loader]');
-    if (existing) {
-      existing.addEventListener('load', () => resolve(window.google?.maps ?? null), { once: true });
-      existing.addEventListener('error', () => resolve(null), { once: true });
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    script.dataset.googleMapsLoader = 'true';
-    script.onload = () => resolve(window.google?.maps ?? null);
-    script.onerror = () => resolve(null);
-    document.head.appendChild(script);
-  });
-}
-
-async function initContactsMap() {
-  if (!isContactsPage.value) return;
-  const target = contactsMapEl.value;
-  if (!target) return;
-
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-  const maps = await loadGoogleMaps(apiKey);
-
-  if (!maps) {
-    contactsMapStatus.value = apiKey ? 'error' : 'no-key';
-    return;
-  }
-
-  const map = new maps.Map(target, {
-    center: { lat: 43.238949, lng: 76.889709 },
-    zoom: 13,
-    disableDefaultUI: true,
-    zoomControl: true,
-    mapTypeControl: false,
-    streetViewControl: false,
-    fullscreenControl: true,
-    gestureHandling: 'cooperative',
-  });
-
-  const address = t.value.contactsPage?.mapQuery || t.value.footer?.addressValue;
-  const geocoder = new maps.Geocoder();
-
-  geocoder.geocode({ address }, (results, status) => {
-    if (status !== 'OK' || !results?.[0]?.geometry?.location) {
-      contactsMapStatus.value = 'error';
-      return;
-    }
-
-    const location = results[0].geometry.location;
-    map.setCenter(location);
-    map.setZoom(16);
-
-    // eslint-disable-next-line no-new
-    new maps.Marker({
-      map,
-      position: location,
-      title: t.value.footer?.addressValue || address,
-    });
-
-    contactsMapStatus.value = 'ready';
-  });
-}
 
 watch(isMenuOpen, (value) => {
   document.body.classList.toggle('menu-open', value);
@@ -795,10 +723,6 @@ watch(activeType, () => {
   });
 });
 
-watch([isContactsPage, currentLanguage], () => {
-  contactsMapStatus.value = 'idle';
-  nextTick(initContactsMap);
-});
 
 onUnmounted(() => {
   document.body.classList.remove('menu-open');
@@ -977,7 +901,8 @@ onUnmounted(() => {
           <p>{{ t.contact.text }}</p>
         </div>
 
-        <form class="contact-form" action="https://formsubmit.co/sales@most-a.com" method="post">
+        <form class="contact-form" action="https://formsubmit.co/sales@most-a.com" method="post"
+          enctype="multipart/form-data">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="New message from MOST Architects">
           <input type="hidden" name="_template" value="table">
@@ -987,6 +912,15 @@ onUnmounted(() => {
           </label>
           <label>
             <input type="tel" name="phone" :placeholder="t.contact.phonePlaceholder" autocomplete="tel" required>
+          </label>
+          <label class="contact-form-file">
+            <input type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+            </svg>
+            <span>Прикрепить файл</span>
           </label>
           <label class="checkbox">
             <input type="checkbox" name="privacy" checked required>
@@ -1105,11 +1039,14 @@ onUnmounted(() => {
       <section class="contacts-page" aria-labelledby="contacts-page-title">
         <section class="contacts-page-hero section-pad">
           <div class="contacts-page-hero-media media-frame contacts-page-map" data-animate>
-            <div ref="contactsMapEl" class="contacts-page-map-canvas" :data-state="contactsMapStatus"></div>
-            <iframe v-if="contactsMapStatus !== 'ready'" class="contacts-page-map-fallback"
+            <iframe
+              class="contacts-page-map-fallback"
               :title="t.contactsPage.heroAlt"
-              :src="`https://www.google.com/maps?q=${encodeURIComponent(t.contactsPage.mapQuery)}&output=embed`"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              src="https://www.openstreetmap.org/export/embed.html?bbox=76.8514%2C43.2400%2C76.8614%2C43.2450&layer=mapnik&marker=43.2425%2C76.8564"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
           </div>
 
           <div class="contacts-page-hero-copy" data-animate>
@@ -1287,7 +1224,7 @@ onUnmounted(() => {
         <section class="project-more section-pad" data-animate>
           <h2>{{ t.projectPage.more }}</h2>
           <div class="project-grid">
-            <article v-for="project in featuredProjectCards.filter((item) => item.href !== `/${projectSlug}`)"
+            <article v-for="project in moreProjectCards.filter((item) => item.href !== `/${projectSlug}`).slice(0, 6)"
               :key="project.title" class="project-card">
               <a class="media-frame" :href="project.href">
                 <img :src="project.image" :alt="project.alt">
@@ -1300,39 +1237,39 @@ onUnmounted(() => {
           </div>
         </section>
 
-        <section class="project-contact section-pad" data-animate>
-          <form class="contacts-page-form project-contact-form" action="https://formsubmit.co/sales@most-a.com" method="post"
+        <section id="contacts" class="contact section-pad" aria-labelledby="contact-title" data-animate>
+          <div class="contact-heading">
+            <h2 id="contact-title">{{ t.contact.title }}</h2>
+            <p>{{ t.contact.text }}</p>
+          </div>
+
+          <form class="contact-form" action="https://formsubmit.co/sales@most-a.com" method="post"
             enctype="multipart/form-data">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="New message from MOST Architects">
             <input type="hidden" name="_template" value="table">
-            <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
+            <p class="contact-form-note">{{ t.contact.note }}</p>
             <label>
-              <input type="text" name="name" :placeholder="t.contactsPage.namePlaceholder" autocomplete="name" required>
-            </label>
-            <label class="contacts-page-form-select-wrap">
-              <select name="service" required>
-                <option value="" disabled selected>{{ t.contactsPage.serviceLabel }}</option>
-                <option v-for="opt in t.contactsPage.serviceOptions" :key="opt" :value="opt">{{ opt }}</option>
-              </select>
+              <input type="text" name="name" :placeholder="t.contact.name" autocomplete="name" required>
             </label>
             <label>
-              <textarea name="description" :placeholder="t.contactsPage.descPlaceholder" rows="4"
-                autocomplete="off"></textarea>
+              <input type="tel" name="phone" :placeholder="t.contact.phonePlaceholder" autocomplete="tel" required>
             </label>
-            <label class="contacts-page-form-file">
+            <label class="contact-form-file">
               <input type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+                <path
+                  d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
               </svg>
-              <span>{{ t.contactsPage.filePlaceholder }}</span>
+              <span>Прикрепить файл</span>
             </label>
             <label class="checkbox">
               <input type="checkbox" name="privacy" checked required>
-              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{ t.contact.privacyLink }}</a></span>
+              <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{
+                t.contact.privacyLink }}</a></span>
             </label>
-            <button class="submit-button" type="submit">{{ t.contactsPage.submit }}</button>
+            <button class="submit-button" type="submit">{{ t.contact.submit }}</button>
           </form>
         </section>
       </article>

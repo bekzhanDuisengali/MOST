@@ -68,7 +68,6 @@ img {
 }
 
 [data-animate].is-visible {
-  margin-top: 60px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -1086,6 +1085,10 @@ img {
   transform: translateY(0);
 }
 
+.contact[data-animate].is-visible {
+  margin-top: 0;
+}
+
 .contact.is-visible {
   box-shadow: 0 28px 90px rgba(17, 17, 15, .16);
   background-color: #000;
@@ -1147,6 +1150,46 @@ img {
 
 .contact-form input:focus {
   border-color: var(--accent);
+}
+
+.contact-form-file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 0 16px;
+  border: 1px solid rgba(17, 17, 15, .16);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.contact-form-file:hover {
+  border-color: rgba(216, 50, 0, .45);
+  background: #fff8f3;
+  color: #11110f;
+  transform: translateY(-1px);
+}
+
+.contact-form-file input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.contact-form-file svg {
+  flex-shrink: 0;
+  color: #d83200;
+}
+
+.contact-form-file span {
+  color: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .checkbox {
@@ -1830,12 +1873,6 @@ img {
   padding-top: clamp(40px, 6vw, 80px);
 }
 
-.project-contact-form {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-}
-
 .contacts-page {
   padding-top: calc(var(--header-height) + clamp(34px, 5vw, 76px));
   padding-bottom: clamp(72px, 10vw, 140px);
@@ -2307,8 +2344,8 @@ img {
 
   .contact {
     grid-template-columns: 1fr;
-    width: auto;
-    margin-inline: var(--pad);
+    width: 100%;
+    margin-inline: 0;
   }
 }
 
