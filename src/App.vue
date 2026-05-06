@@ -997,41 +997,39 @@ onUnmounted(() => {
           </div>
         </section>
 
-        <section class="about-page-contact section-pad" data-animate>
-          <form class="contacts-page-form" action="https://formsubmit.co/sales@most-a.com" method="post"
+        <section class="contact" data-animate>
+          <div class="contact-heading">
+            <h2>DON'T BUILD BLIND.</h2>
+            <p>{{ t.contact.text }}</p>
+          </div>
+
+          <form class="contact-form" action="https://formsubmit.co/sales@most-a.com" method="post"
             enctype="multipart/form-data">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="New message from MOST Architects">
             <input type="hidden" name="_template" value="table">
-            <p class="contacts-page-form-title">{{ t.contactsPage.formTitle }}</p>
+            <p class="contact-form-note">{{ t.contact.note }}</p>
             <label>
-              <input type="text" name="name" :placeholder="t.contactsPage.namePlaceholder" autocomplete="name" required>
-            </label>
-            <label class="contacts-page-form-select-wrap">
-              <select name="service" required>
-                <option value="" disabled selected>{{ t.contactsPage.serviceLabel }}</option>
-                <option v-for="opt in t.contactsPage.serviceOptions" :key="opt" :value="opt">{{ opt }}</option>
-              </select>
+              <input type="text" name="name" :placeholder="t.contact.name" autocomplete="name" required>
             </label>
             <label>
-              <textarea name="description" :placeholder="t.contactsPage.descPlaceholder" rows="4"
-                autocomplete="off"></textarea>
+              <input type="tel" name="phone" :placeholder="t.contact.phonePlaceholder" autocomplete="tel" required>
             </label>
-            <label class="contacts-page-form-file">
+            <label class="contact-form-file">
               <input type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path
                   d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
               </svg>
-              <span>{{ t.contactsPage.filePlaceholder }}</span>
+              <span>Прикрепить файл</span>
             </label>
             <label class="checkbox">
               <input type="checkbox" name="privacy" checked required>
               <span>{{ t.contact.privacyBefore }} <a href="/" target="_blank" rel="noreferrer noopener">{{
                 t.contact.privacyLink }}</a></span>
             </label>
-            <button class="submit-button" type="submit">{{ t.contactsPage.submit }}</button>
+            <button class="submit-button" type="submit">{{ t.contact.submit }}</button>
           </form>
         </section>
       </section>

@@ -1086,7 +1086,7 @@ img {
 }
 
 .contact[data-animate].is-visible {
-  margin-top: 0;
+  margin-top: 50px;
 }
 
 .contact.is-visible {
@@ -1838,7 +1838,7 @@ img {
 
 .about-page-story-media {
   aspect-ratio: 3 / 2;
-  min-height: 520px;
+  min-height: 0;
   border-radius: 28px;
   background: #efede7;
 }
@@ -1871,6 +1871,10 @@ img {
   max-width: 680px;
   margin: 0 auto;
   padding-top: clamp(40px, 6vw, 80px);
+}
+
+.about-page .contact {
+  margin-top: clamp(72px, 10vw, 140px);
 }
 
 .contacts-page {
