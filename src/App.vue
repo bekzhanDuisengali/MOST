@@ -11,6 +11,7 @@ const activeHeroSlide = ref(0);
 const prevHeroSlide = ref(null);
 
 const activeType = ref('all');
+const projectReferrer = ref('/projects');
 let revealObserver;
 let projectSliderTimer;
 let heroSliderTimer;
@@ -435,6 +436,11 @@ const projectThumbnailMap = {
 
 const projectImages = computed(() => projectImageGroups[projectSlug.value] || projectImageGroups.meliora);
 const projectSliderImages = computed(() => [projectImages.value.hero, ...projectImages.value.gallery]);
+const currentProjectStatus = computed(() => {
+  const item = t.value.projects.items.find((p) => p.href === `/${projectSlug.value}`);
+  const key = item?.status ?? 'sketch';
+  return { key, label: t.value.statusLabels?.[key] ?? '' };
+});
 const projectCards = computed(() => t.value.projects.items.map((project, index) => {
   const slug = project.href.replace(/^\//, '');
   const image = projectThumbnailMap[slug] || projectThumbs[index % projectThumbs.length];
@@ -528,6 +534,11 @@ function navigateTo(href) {
     }
 
     return;
+  }
+
+  const destSlug = url.pathname.split('/').filter(Boolean)[0] || '';
+  if (t.value.projectPages?.[destSlug]) {
+    projectReferrer.value = currentPath.value === '/projects' ? '/projects' : '/#projects';
   }
 
   window.history.pushState({}, '', nextLocation);
@@ -785,16 +796,9 @@ onUnmounted(() => {
             <img :src="heroImage" :alt="t.hero.alt" fetchpriority="high">
           </picture>
           <div class="hero-slides-mobile" aria-hidden="true">
-            <img
-              v-for="(slide, i) in heroSlides"
-              :key="slide"
-              :src="slide"
-              :alt="t.hero.alt"
-              class="hero-slide-img"
+            <img v-for="(slide, i) in heroSlides" :key="slide" :src="slide" :alt="t.hero.alt" class="hero-slide-img"
               :class="{ 'is-active': i === activeHeroSlide, 'is-prev': i === prevHeroSlide }"
-              :fetchpriority="i === 0 ? 'high' : 'low'"
-              :loading="i === 0 ? 'eager' : 'lazy'"
-            >
+              :fetchpriority="i === 0 ? 'high' : 'low'" :loading="i === 0 ? 'eager' : 'lazy'">
           </div>
         </div>
 
@@ -1039,14 +1043,9 @@ onUnmounted(() => {
       <section class="contacts-page" aria-labelledby="contacts-page-title">
         <section class="contacts-page-hero section-pad">
           <div class="contacts-page-hero-media media-frame contacts-page-map" data-animate>
-            <iframe
-              class="contacts-page-map-fallback"
-              :title="t.contactsPage.heroAlt"
+            <iframe class="contacts-page-map-fallback" :title="t.contactsPage.heroAlt"
               src="https://www.openstreetmap.org/export/embed.html?bbox=76.8514%2C43.2400%2C76.8614%2C43.2450&layer=mapnik&marker=43.2425%2C76.8564"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-            ></iframe>
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
 
           <div class="contacts-page-hero-copy" data-animate>
@@ -1126,7 +1125,7 @@ onUnmounted(() => {
     <template v-else-if="isProjectsPage">
       <section class="projects-page section-pad" aria-labelledby="all-projects-title">
         <div class="projects-page-head" data-animate>
-          <a class="project-back" href="/#projects">{{ t.projectPage.back }}</a>
+          <a class="project-back" href="/projects">{{ t.projectPage.back }}</a>
           <div>
             <h1 id="all-projects-title">{{ t.projects.all }}</h1>
           </div>
@@ -1159,9 +1158,10 @@ onUnmounted(() => {
             <img :src="projectImages.hero" :alt="currentProject.heroAlt" fetchpriority="high">
           </div>
           <div class="project-hero-content section-pad">
-            <a class="project-back" href="/#projects">{{ t.projectPage.back }}</a>
+            <a class="project-back" :href="projectReferrer">{{ t.projectPage.back }}</a>
             <p class="eyebrow">{{ currentProject.category }}</p>
             <h1 id="project-title">{{ currentProject.title }}</h1>
+            <span class="project-status" :data-status="currentProjectStatus.key">{{ currentProjectStatus.label }}</span>
             <dl class="project-hero-facts">
               <div v-for="fact in currentProject.facts.slice(0, 3)" :key="fact.label">
                 <dt>{{ fact.label }}</dt>

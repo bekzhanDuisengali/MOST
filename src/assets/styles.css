@@ -1374,6 +1374,35 @@ img {
   color: #ff6a3b;
 }
 
+.project-status {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-status[data-status="built"] {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.project-status[data-status="concept"] {
+  background: rgba(255, 106, 59, 0.15);
+  color: #ff6a3b;
+  border: 1px solid rgba(255, 106, 59, 0.35);
+}
+
+.project-status[data-status="sketch"] {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .project-hero-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
