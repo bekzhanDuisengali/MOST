@@ -124,279 +124,279 @@ const projectImageGroups = {
     ],
   },
   yubileynyy: {
-    hero: sourceAsset('Yubileynyy/21.04_f.jpg'),
+    hero: sourceAsset('Yubileynyy/21.04_f.webp'),
     gallery: [
-      sourceAsset('Yubileynyy/22.04_f.jpg'),
-      sourceAsset('Yubileynyy/3.2_Base1.jpg'),
-      sourceAsset('Yubileynyy/5.2_F.jpg'),
-      sourceAsset('Yubileynyy/1 (3).jpg'),
-      sourceAsset('Yubileynyy/4_F (1).jpg'),
+      sourceAsset('Yubileynyy/22.04_f.webp'),
+      sourceAsset('Yubileynyy/3.2_Base1.webp'),
+      sourceAsset('Yubileynyy/5.2_F.webp'),
+      sourceAsset('Yubileynyy/1 (3).webp'),
+      sourceAsset('Yubileynyy/4_F (1).webp'),
     ],
   },
   'alatau-village': {
-    hero: sourceAsset('alatau-village/06.07_23C1_f.jpg'),
+    hero: sourceAsset('alatau-village/06.07_23C1_f.webp'),
     gallery: [
-      sourceAsset('alatau-village/09.07_C2_f.jpg'),
-      sourceAsset('alatau-village/09.07_C2v2_f1.jpg'),
-      sourceAsset('alatau-village/10.07_C3_f1.jpg'),
-      sourceAsset('alatau-village/10.07_C4_f.jpg'),
-      sourceAsset('alatau-village/11.07_C5_f.jpg'),
-      sourceAsset('alatau-village/11.07_C5_f1.jpg'),
-      sourceAsset('alatau-village/11.07_C6_f.jpg'),
-      sourceAsset('alatau-village/11.07_C6_f1.jpg'),
+      sourceAsset('alatau-village/09.07_C2_f.webp'),
+      sourceAsset('alatau-village/09.07_C2v2_f1.webp'),
+      sourceAsset('alatau-village/10.07_C3_f1.webp'),
+      sourceAsset('alatau-village/10.07_C4_f.webp'),
+      sourceAsset('alatau-village/11.07_C5_f.webp'),
+      sourceAsset('alatau-village/11.07_C5_f1.webp'),
+      sourceAsset('alatau-village/11.07_C6_f.webp'),
+      sourceAsset('alatau-village/11.07_C6_f1.webp'),
     ],
   },
   'arkon-city': {
-    hero: sourceAsset('arkon-city/Bird_view.jpg'),
+    hero: sourceAsset('arkon-city/Bird_view.webp'),
     gallery: [
-      sourceAsset('arkon-city/Bird_view_2.jpg'),
-      sourceAsset('arkon-city/03.jpg'),
-      sourceAsset('arkon-city/04.jpg'),
-      sourceAsset('arkon-city/Aut.jpg'),
-      sourceAsset('arkon-city/Commerce (1).jpg'),
-      sourceAsset('arkon-city/Parking.jpg'),
-      sourceAsset('arkon-city/Playground.jpg'),
-      sourceAsset('arkon-city/winter.jpg'),
+      sourceAsset('arkon-city/Bird_view_2.webp'),
+      sourceAsset('arkon-city/03.webp'),
+      sourceAsset('arkon-city/04.webp'),
+      sourceAsset('arkon-city/Aut.webp'),
+      sourceAsset('arkon-city/Commerce (1).webp'),
+      sourceAsset('arkon-city/Parking.webp'),
+      sourceAsset('arkon-city/Playground.webp'),
+      sourceAsset('arkon-city/winter.webp'),
     ],
   },
   aulet: {
-    hero: sourceAsset('aulet/_SA_Cam-01.jpg'),
+    hero: sourceAsset('aulet/_SA_Cam-01.webp'),
     gallery: [
-      sourceAsset('aulet/_SA_Cam-02.jpg'),
-      sourceAsset('aulet/SA_Cam-03.jpg'),
-      sourceAsset('aulet/SA_Cam-03(Night).jpg'),
-      sourceAsset('aulet/_SA_Cam-4.jpg'),
-      sourceAsset('aulet/Cam-05.jpg'),
-      sourceAsset('aulet/Cam-11(kommercia).jpg'),
-      sourceAsset('aulet/DJI_0488.jpg'),
+      sourceAsset('aulet/_SA_Cam-02.webp'),
+      sourceAsset('aulet/SA_Cam-03.webp'),
+      sourceAsset('aulet/SA_Cam-03(Night).webp'),
+      sourceAsset('aulet/_SA_Cam-4.webp'),
+      sourceAsset('aulet/Cam-05.webp'),
+      sourceAsset('aulet/Cam-11(kommercia).webp'),
+      sourceAsset('aulet/DJI_0488.webp'),
     ],
   },
   besagash: {
-    hero: sourceAsset('besagash/0012b.jpg'),
+    hero: sourceAsset('besagash/0012b.webp'),
     gallery: [
-      sourceAsset('besagash/001BA001.jpg'),
-      sourceAsset('besagash/00223.jpg'),
-      sourceAsset('besagash/002BA001.jpg'),
-      sourceAsset('besagash/0031b.jpg'),
-      sourceAsset('besagash/0041b.jpg'),
-      sourceAsset('besagash/005b.jpg'),
+      sourceAsset('besagash/001BA001.webp'),
+      sourceAsset('besagash/00223.webp'),
+      sourceAsset('besagash/002BA001.webp'),
+      sourceAsset('besagash/0031b.webp'),
+      sourceAsset('besagash/0041b.webp'),
+      sourceAsset('besagash/005b.webp'),
     ],
   },
   enesai: {
-    hero: sourceAsset('enesai/view_01.jpg'),
+    hero: sourceAsset('enesai/view_01.webp'),
     gallery: [
-      sourceAsset('enesai/view_02.jpg'),
-      sourceAsset('enesai/view_02,1.jpg'),
-      sourceAsset('enesai/View_02,2.jpg'),
-      sourceAsset('enesai/view_09.jpg'),
+      sourceAsset('enesai/view_02.webp'),
+      sourceAsset('enesai/view_02,1.webp'),
+      sourceAsset('enesai/View_02,2.webp'),
+      sourceAsset('enesai/view_09.webp'),
     ],
   },
   'everest-boulevard': {
-    hero: sourceAsset('everest-boulevard/bird_boulevard.jpg'),
+    hero: sourceAsset('everest-boulevard/bird_boulevard.webp'),
     gallery: [
-      sourceAsset('everest-boulevard/07_view.jpg'),
-      sourceAsset('everest-boulevard/KMP_02.jpg'),
-      sourceAsset('everest-boulevard/KMP.jpg'),
-      sourceAsset('everest-boulevard/View_01 (2).jpg'),
-      sourceAsset('everest-boulevard/View_02 (2).jpg'),
-      sourceAsset('everest-boulevard/View_04 (1).jpg'),
-      sourceAsset('everest-boulevard/View_05 (1).jpg'),
-      sourceAsset('everest-boulevard/View_06 (1).jpg'),
-      sourceAsset('everest-boulevard/View_06_day.jpg'),
-      sourceAsset('everest-boulevard/view_08_01.jpg'),
+      sourceAsset('everest-boulevard/07_view.webp'),
+      sourceAsset('everest-boulevard/KMP_02.webp'),
+      sourceAsset('everest-boulevard/KMP.webp'),
+      sourceAsset('everest-boulevard/View_01 (2).webp'),
+      sourceAsset('everest-boulevard/View_02 (2).webp'),
+      sourceAsset('everest-boulevard/View_04 (1).webp'),
+      sourceAsset('everest-boulevard/View_05 (1).webp'),
+      sourceAsset('everest-boulevard/View_06 (1).webp'),
+      sourceAsset('everest-boulevard/View_06_day.webp'),
+      sourceAsset('everest-boulevard/view_08_01.webp'),
     ],
   },
   'family-club': {
-    hero: sourceAsset('family-club/3.jpg'),
+    hero: sourceAsset('family-club/3.webp'),
     gallery: [
-      sourceAsset('family-club/4.jpg'),
-      sourceAsset('family-club/5.jpg'),
-      sourceAsset('family-club/1 (1).jpg'),
-      sourceAsset('family-club/2 (1).jpg'),
+      sourceAsset('family-club/4.webp'),
+      sourceAsset('family-club/5.webp'),
+      sourceAsset('family-club/1 (1).webp'),
+      sourceAsset('family-club/2 (1).webp'),
     ],
   },
   'family-comfort': {
-    hero: sourceAsset('family-comfort/1_F.jpg'),
+    hero: sourceAsset('family-comfort/1_F.webp'),
     gallery: [
-      sourceAsset('family-comfort/2_F.jpg'),
-      sourceAsset('family-comfort/3_F (1).jpg'),
-      sourceAsset('family-comfort/4_F (2).jpg'),
-      sourceAsset('family-comfort/5_F.jpg'),
-      sourceAsset('family-comfort/6_F.jpg'),
+      sourceAsset('family-comfort/2_F.webp'),
+      sourceAsset('family-comfort/3_F (1).webp'),
+      sourceAsset('family-comfort/4_F (2).webp'),
+      sourceAsset('family-comfort/5_F.webp'),
+      sourceAsset('family-comfort/6_F.webp'),
     ],
   },
   'hayat-city': {
-    hero: sourceAsset('hayat-city/view_12.jpg'),
+    hero: sourceAsset('hayat-city/view_12.webp'),
     gallery: [
-      sourceAsset('hayat-city/view_01 (4).jpg'),
-      sourceAsset('hayat-city/view_02 (4).jpg'),
-      sourceAsset('hayat-city/view_03 (2).jpg'),
-      sourceAsset('hayat-city/view_04 (2).jpg'),
-      sourceAsset('hayat-city/view_05 (2).jpg'),
-      sourceAsset('hayat-city/view_06 (3).jpg'),
-      sourceAsset('hayat-city/view_07 (1).jpg'),
-      sourceAsset('hayat-city/view_08 (1).jpg'),
-      sourceAsset('hayat-city/view_09 (2).jpg'),
-      sourceAsset('hayat-city/view_10 (1).jpg'),
-      sourceAsset('hayat-city/view_11 (1).jpg'),
+      sourceAsset('hayat-city/view_01 (4).webp'),
+      sourceAsset('hayat-city/view_02 (4).webp'),
+      sourceAsset('hayat-city/view_03 (2).webp'),
+      sourceAsset('hayat-city/view_04 (2).webp'),
+      sourceAsset('hayat-city/view_05 (2).webp'),
+      sourceAsset('hayat-city/view_06 (3).webp'),
+      sourceAsset('hayat-city/view_07 (1).webp'),
+      sourceAsset('hayat-city/view_08 (1).webp'),
+      sourceAsset('hayat-city/view_09 (2).webp'),
+      sourceAsset('hayat-city/view_10 (1).webp'),
+      sourceAsset('hayat-city/view_11 (1).webp'),
     ],
   },
   'hayat-park': {
-    hero: sourceAsset('hayat-park/01HP001.jpg'),
+    hero: sourceAsset('hayat-park/01HP001.webp'),
     gallery: [
-      sourceAsset('hayat-park/02HP001.jpg'),
-      sourceAsset('hayat-park/011BAG010.jpg'),
-      sourceAsset('hayat-park/020BAG002.jpg'),
-      sourceAsset('hayat-park/030BAG002.jpg'),
-      sourceAsset('hayat-park/040BAG002.jpg'),
-      sourceAsset('hayat-park/050BAG020.jpg'),
+      sourceAsset('hayat-park/02HP001.webp'),
+      sourceAsset('hayat-park/011BAG010.webp'),
+      sourceAsset('hayat-park/020BAG002.webp'),
+      sourceAsset('hayat-park/030BAG002.webp'),
+      sourceAsset('hayat-park/040BAG002.webp'),
+      sourceAsset('hayat-park/050BAG020.webp'),
     ],
   },
   'high-garden': {
-    hero: sourceAsset('high-garden/GPIMR005.jpg'),
+    hero: sourceAsset('high-garden/GPIMR005.webp'),
     gallery: [
-      sourceAsset('high-garden/003IMR006.jpg'),
-      sourceAsset('high-garden/004IMR006.jpg'),
-      sourceAsset('high-garden/008IMR003.jpg'),
+      sourceAsset('high-garden/003IMR006.webp'),
+      sourceAsset('high-garden/004IMR006.webp'),
+      sourceAsset('high-garden/008IMR003.webp'),
     ],
   },
   'jenys-judo-center': {
-    hero: sourceAsset('jenys-judo-center/19_D_2.jpg'),
+    hero: sourceAsset('jenys-judo-center/19_D_2.webp'),
     gallery: [
-      sourceAsset('jenys-judo-center/03b.jpg'),
-      sourceAsset('jenys-judo-center/05.jpg'),
-      sourceAsset('jenys-judo-center/06_2.jpg'),
-      sourceAsset('jenys-judo-center/07.jpg'),
-      sourceAsset('jenys-judo-center/08.jpg'),
-      sourceAsset('jenys-judo-center/11_D.jpg'),
-      sourceAsset('jenys-judo-center/11_N.jpg'),
-      sourceAsset('jenys-judo-center/16-2_D_2.jpg'),
-      sourceAsset('jenys-judo-center/19_D_2.jpg'),
-      sourceAsset('jenys-judo-center/2_D.jpg'),
+      sourceAsset('jenys-judo-center/03b.webp'),
+      sourceAsset('jenys-judo-center/05.webp'),
+      sourceAsset('jenys-judo-center/06_2.webp'),
+      sourceAsset('jenys-judo-center/07.webp'),
+      sourceAsset('jenys-judo-center/08.webp'),
+      sourceAsset('jenys-judo-center/11_D.webp'),
+      sourceAsset('jenys-judo-center/11_N.webp'),
+      sourceAsset('jenys-judo-center/16-2_D_2.webp'),
+      sourceAsset('jenys-judo-center/19_D_2.webp'),
+      sourceAsset('jenys-judo-center/2_D.webp'),
     ],
   },
   'soldier-lake': {
-    hero: sourceAsset('soldier-lake/008_01.jpg'),
+    hero: sourceAsset('soldier-lake/008_01.webp'),
     gallery: [
-      sourceAsset('soldier-lake/001.jpg'),
-      sourceAsset('soldier-lake/005_01.jpg'),
-      sourceAsset('soldier-lake/007.jpg'),
-      sourceAsset('soldier-lake/009.jpg'),
-      sourceAsset('soldier-lake/007_01.jpg'),
+      sourceAsset('soldier-lake/001.webp'),
+      sourceAsset('soldier-lake/005_01.webp'),
+      sourceAsset('soldier-lake/007.webp'),
+      sourceAsset('soldier-lake/009.webp'),
+      sourceAsset('soldier-lake/007_01.webp'),
     ],
   },
   ippodrom: {
-    hero: sourceAsset('ippodrom/ippodrom_bird01.jpg'),
+    hero: sourceAsset('ippodrom/ippodrom_bird01.webp'),
     gallery: [
-      sourceAsset('ippodrom/tri_01_var2.jpg'),
-      sourceAsset('ippodrom/tri_02_back_var2.jpg'),
-      sourceAsset('ippodrom/admin_view.jpg'),
-      sourceAsset('ippodrom/parking_hippodrome.jpg'),
-      sourceAsset('ippodrom/bird_view (1).jpg'),
+      sourceAsset('ippodrom/tri_01_var2.webp'),
+      sourceAsset('ippodrom/tri_02_back_var2.webp'),
+      sourceAsset('ippodrom/admin_view.webp'),
+      sourceAsset('ippodrom/parking_hippodrome.webp'),
+      sourceAsset('ippodrom/bird_view (1).webp'),
     ],
   },
   fok: {
-    hero: sourceAsset('fok/02_view.jpg'),
+    hero: sourceAsset('fok/02_view.webp'),
     gallery: [
-      sourceAsset('fok/001 (1).jpg'),
-      sourceAsset('fok/003 (1).jpg'),
+      sourceAsset('fok/001 (1).webp'),
+      sourceAsset('fok/003 (1).webp'),
     ],
   },
   jezkazgan: {
-    hero: sourceAsset('jezkazgan/view_01_3000.jpg'),
+    hero: sourceAsset('jezkazgan/view_01_3000.webp'),
     gallery: [
-      sourceAsset('jezkazgan/view_02_3000.jpg'),
-      sourceAsset('jezkazgan/view_03_3000.jpg'),
-      sourceAsset('jezkazgan/view_05_3000.jpg'),
-      sourceAsset('jezkazgan/view_06_3000.jpg'),
-      sourceAsset('jezkazgan/Front_01_Interactive LightMix.jpg'),
-      sourceAsset('jezkazgan/commercia_A01_Interactive LightMix.jpg'),
+      sourceAsset('jezkazgan/view_02_3000.webp'),
+      sourceAsset('jezkazgan/view_03_3000.webp'),
+      sourceAsset('jezkazgan/view_05_3000.webp'),
+      sourceAsset('jezkazgan/view_06_3000.webp'),
+      sourceAsset('jezkazgan/Front_01_Interactive LightMix.webp'),
+      sourceAsset('jezkazgan/commercia_A01_Interactive LightMix.webp'),
     ],
   },
   monterosa: {
-    hero: sourceAsset('monterosa/Monte_1.2.1_F.jpg'),
+    hero: sourceAsset('monterosa/Monte_1.2.1_F.webp'),
     gallery: [
-      sourceAsset('monterosa/view_03.jpg'),
-      sourceAsset('monterosa/view_04.jpg'),
-      sourceAsset('monterosa/view_05.jpg'),
-      sourceAsset('monterosa/view_06.jpg'),
-      sourceAsset('monterosa/view_01 (1).jpg'),
-      sourceAsset('monterosa/view_02 (1).jpg'),
+      sourceAsset('monterosa/view_03.webp'),
+      sourceAsset('monterosa/view_04.webp'),
+      sourceAsset('monterosa/view_05.webp'),
+      sourceAsset('monterosa/view_06.webp'),
+      sourceAsset('monterosa/view_01 (1).webp'),
+      sourceAsset('monterosa/view_02 (1).webp'),
     ],
   },
   'mountain-drive': {
-    hero: sourceAsset('mountain-drive/cam3_F.jpg'),
+    hero: sourceAsset('mountain-drive/cam3_F.webp'),
     gallery: [
-      sourceAsset('mountain-drive/cam4_F.jpg'),
-      sourceAsset('mountain-drive/viz_offis2_.jpg'),
-      sourceAsset('mountain-drive/cam2_F (2).jpg'),
+      sourceAsset('mountain-drive/cam4_F.webp'),
+      sourceAsset('mountain-drive/viz_offis2_.webp'),
+      sourceAsset('mountain-drive/cam2_F (2).webp'),
     ],
   },
   'munar-tau': {
-    hero: sourceAsset('munar-tau/view_01_10000_final.jpg'),
+    hero: sourceAsset('munar-tau/view_01_10000_final.webp'),
     gallery: [
-      sourceAsset('munar-tau/view_03_10000_final.jpg'),
-      sourceAsset('munar-tau/view_04_10000_final.jpg'),
-      sourceAsset('munar-tau/view_05_10000_final.jpg'),
-      sourceAsset('munar-tau/view_07_10000_final.jpg'),
+      sourceAsset('munar-tau/view_03_10000_final.webp'),
+      sourceAsset('munar-tau/view_04_10000_final.webp'),
+      sourceAsset('munar-tau/view_05_10000_final.webp'),
+      sourceAsset('munar-tau/view_07_10000_final.webp'),
     ],
   },
   'nova-23': {
-    hero: sourceAsset('nova-23/view_01_5000_10.02.jpg'),
+    hero: sourceAsset('nova-23/view_01_5000_10.02.webp'),
     gallery: [
-      sourceAsset('nova-23/view_02_5000_14.02.jpg'),
-      sourceAsset('nova-23/view_03_5000_14.02.jpg'),
-      sourceAsset('nova-23/view_03_5000_14.02_1111111.jpg'),
+      sourceAsset('nova-23/view_02_5000_14.02.webp'),
+      sourceAsset('nova-23/view_03_5000_14.02.webp'),
+      sourceAsset('nova-23/view_03_5000_14.02_1111111.webp'),
     ],
   },
   'nova-park': {
-    hero: sourceAsset('nova-park/cam_002_eyeview_front_brick.jpg'),
+    hero: sourceAsset('nova-park/cam_002_eyeview_front_brick.webp'),
     gallery: [
-      sourceAsset('nova-park/cam_001_eyeview_dvor_wood.jpg'),
-      sourceAsset('nova-park/cam_003_front noch.jpg'),
-      sourceAsset('nova-park/cam_004_eyeview_wood.jpg'),
-      sourceAsset('nova-park/cam_005_eyeview_brick.jpg'),
-      sourceAsset('nova-park/cam_006_dvor_brick.jpg'),
-      sourceAsset('nova-park/cam_007_alley_wood.jpg'),
+      sourceAsset('nova-park/cam_001_eyeview_dvor_wood.webp'),
+      sourceAsset('nova-park/cam_003_front noch.webp'),
+      sourceAsset('nova-park/cam_004_eyeview_wood.webp'),
+      sourceAsset('nova-park/cam_005_eyeview_brick.webp'),
+      sourceAsset('nova-park/cam_006_dvor_brick.webp'),
+      sourceAsset('nova-park/cam_007_alley_wood.webp'),
     ],
   },
   'nova-village': {
-    hero: sourceAsset('nova-village/view_06_ptichka.jpg'),
+    hero: sourceAsset('nova-village/view_06_ptichka.webp'),
     gallery: [
-      sourceAsset('nova-village/view_01_d2.jpg'),
-      sourceAsset('nova-village/view_01_d3.jpg'),
-      sourceAsset('nova-village/view_02_d1.jpg'),
-      sourceAsset('nova-village/view_02_d2.jpg'),
-      sourceAsset('nova-village/view_02_d3.jpg'),
-      sourceAsset('nova-village/view_03_d2.jpg'),
+      sourceAsset('nova-village/view_01_d2.webp'),
+      sourceAsset('nova-village/view_01_d3.webp'),
+      sourceAsset('nova-village/view_02_d1.webp'),
+      sourceAsset('nova-village/view_02_d2.webp'),
+      sourceAsset('nova-village/view_02_d3.webp'),
+      sourceAsset('nova-village/view_03_d2.webp'),
     ],
   },
   tausamal: {
-    hero: sourceAsset('tausamal/view_07.jpg'),
+    hero: sourceAsset('tausamal/view_07.webp'),
     gallery: [
-      sourceAsset('tausamal/view_08.jpg'),
-      sourceAsset('tausamal/view_10.jpg'),
-      sourceAsset('tausamal/view_11.jpg'),
-      sourceAsset('tausamal/view_04_Dron.jpg'),
-      sourceAsset('tausamal/view_05_Dron.jpg'),
-      sourceAsset('tausamal/view_01 (3).jpg'),
-      sourceAsset('tausamal/view_02 (3).jpg'),
-      sourceAsset('tausamal/view_03 (1).jpg'),
-      sourceAsset('tausamal/view_06 (2).jpg'),
-      sourceAsset('tausamal/view_09 (1).jpg'),
+      sourceAsset('tausamal/view_08.webp'),
+      sourceAsset('tausamal/view_10.webp'),
+      sourceAsset('tausamal/view_11.webp'),
+      sourceAsset('tausamal/view_04_Dron.webp'),
+      sourceAsset('tausamal/view_05_Dron.webp'),
+      sourceAsset('tausamal/view_01 (3).webp'),
+      sourceAsset('tausamal/view_02 (3).webp'),
+      sourceAsset('tausamal/view_03 (1).webp'),
+      sourceAsset('tausamal/view_06 (2).webp'),
+      sourceAsset('tausamal/view_09 (1).webp'),
     ],
   },
   'terrenkur-terrace': {
-    hero: sourceAsset('terrenkur-terrace/ROAD_VIEW_2.jpg'),
+    hero: sourceAsset('terrenkur-terrace/ROAD_VIEW_2.webp'),
     gallery: [
-      sourceAsset('terrenkur-terrace/BIRD WIEV 1_2.jpg'),
-      sourceAsset('terrenkur-terrace/BIRD WIEV 2_2_.jpg'),
-      sourceAsset('terrenkur-terrace/NIGHT (1).jpg'),
-      sourceAsset('terrenkur-terrace/PLAYGROUND_1.jpg'),
-      sourceAsset('terrenkur-terrace/PLAYGROUND 2_opt_2_.jpg'),
-      sourceAsset('terrenkur-terrace/SPORT_opt_3.jpg'),
-      sourceAsset('terrenkur-terrace/TERRACCE_opt_2_.jpg'),
-      sourceAsset('terrenkur-terrace/YARD_1_2.jpg'),
+      sourceAsset('terrenkur-terrace/BIRD WIEV 1_2.webp'),
+      sourceAsset('terrenkur-terrace/BIRD WIEV 2_2_.webp'),
+      sourceAsset('terrenkur-terrace/NIGHT (1).webp'),
+      sourceAsset('terrenkur-terrace/PLAYGROUND_1.webp'),
+      sourceAsset('terrenkur-terrace/PLAYGROUND 2_opt_2_.webp'),
+      sourceAsset('terrenkur-terrace/SPORT_opt_3.webp'),
+      sourceAsset('terrenkur-terrace/TERRACCE_opt_2_.webp'),
+      sourceAsset('terrenkur-terrace/YARD_1_2.webp'),
     ],
   },
 };
@@ -406,31 +406,31 @@ const projectThumbnailMap = {
   biography: publicAsset('biography/New_01.webp'),
   naukograd: publicAsset('naukograd/Bird_night_02_02.webp'),
   'raddison-turkestan': publicAsset('raddison-turkestan/Final_view_A02_night_logo_Radisson_1.webp'),
-  yubileynyy: sourceAsset('Yubileynyy/21.04_f.jpg'),
-  'alatau-village': sourceAsset('alatau-village/06.07_23C1_f.jpg'),
-  'arkon-city': sourceAsset('arkon-city/Bird_view.jpg'),
-  aulet: sourceAsset('aulet/_SA_Cam-01.jpg'),
-  besagash: sourceAsset('besagash/0012b.jpg'),
-  enesai: sourceAsset('enesai/view_01.jpg'),
-  'everest-boulevard': sourceAsset('everest-boulevard/bird_boulevard.jpg'),
-  'family-club': sourceAsset('family-club/3.jpg'),
-  'family-comfort': sourceAsset('family-comfort/1_F.jpg'),
-  'hayat-city': sourceAsset('hayat-city/view_12.jpg'),
-  'hayat-park': sourceAsset('hayat-park/01HP001.jpg'),
-  'high-garden': sourceAsset('high-garden/GPIMR005.jpg'),
-  'jenys-judo-center': sourceAsset('jenys-judo-center/19_D_2.jpg'),
-  'soldier-lake': sourceAsset('soldier-lake/008_01.jpg'),
-  ippodrom: sourceAsset('ippodrom/ippodrom_bird01.jpg'),
-  fok: sourceAsset('fok/02_view.jpg'),
-  jezkazgan: sourceAsset('jezkazgan/view_01_3000.jpg'),
-  monterosa: sourceAsset('monterosa/Monte_1.2.1_F.jpg'),
-  'mountain-drive': sourceAsset('mountain-drive/cam3_F.jpg'),
-  'munar-tau': sourceAsset('munar-tau/view_01_10000_final.jpg'),
-  'nova-23': sourceAsset('nova-23/view_01_5000_10.02.jpg'),
-  'nova-park': sourceAsset('nova-park/cam_002_eyeview_front_brick.jpg'),
-  'nova-village': sourceAsset('nova-village/view_06_ptichka.jpg'),
-  tausamal: sourceAsset('tausamal/view_07.jpg'),
-  'terrenkur-terrace': sourceAsset('terrenkur-terrace/ROAD_VIEW_2.jpg'),
+  yubileynyy: sourceAsset('Yubileynyy/21.04_f.webp'),
+  'alatau-village': sourceAsset('alatau-village/06.07_23C1_f.webp'),
+  'arkon-city': sourceAsset('arkon-city/Bird_view.webp'),
+  aulet: sourceAsset('aulet/_SA_Cam-01.webp'),
+  besagash: sourceAsset('besagash/0012b.webp'),
+  enesai: sourceAsset('enesai/view_01.webp'),
+  'everest-boulevard': sourceAsset('everest-boulevard/bird_boulevard.webp'),
+  'family-club': sourceAsset('family-club/3.webp'),
+  'family-comfort': sourceAsset('family-comfort/1_F.webp'),
+  'hayat-city': sourceAsset('hayat-city/view_12.webp'),
+  'hayat-park': sourceAsset('hayat-park/01HP001.webp'),
+  'high-garden': sourceAsset('high-garden/GPIMR005.webp'),
+  'jenys-judo-center': sourceAsset('jenys-judo-center/19_D_2.webp'),
+  'soldier-lake': sourceAsset('soldier-lake/008_01.webp'),
+  ippodrom: sourceAsset('ippodrom/ippodrom_bird01.webp'),
+  fok: sourceAsset('fok/02_view.webp'),
+  jezkazgan: sourceAsset('jezkazgan/view_01_3000.webp'),
+  monterosa: sourceAsset('monterosa/Monte_1.2.1_F.webp'),
+  'mountain-drive': sourceAsset('mountain-drive/cam3_F.webp'),
+  'munar-tau': sourceAsset('munar-tau/view_01_10000_final.webp'),
+  'nova-23': sourceAsset('nova-23/view_01_5000_10.02.webp'),
+  'nova-park': sourceAsset('nova-park/cam_002_eyeview_front_brick.webp'),
+  'nova-village': sourceAsset('nova-village/view_06_ptichka.webp'),
+  tausamal: sourceAsset('tausamal/view_07.webp'),
+  'terrenkur-terrace': sourceAsset('terrenkur-terrace/ROAD_VIEW_2.webp'),
 };
 
 const projectImages = computed(() => projectImageGroups[projectSlug.value] || projectImageGroups.meliora);
@@ -782,7 +782,7 @@ onUnmounted(() => {
       <section ref="homeHeroEl" class="hero stack-hero" aria-labelledby="hero-title">
         <div class="hero-media media-frame">
           <picture class="hero-slide-desktop">
-            <img :src="heroImage" :alt="t.hero.alt">
+            <img :src="heroImage" :alt="t.hero.alt" fetchpriority="high">
           </picture>
           <div class="hero-slides-mobile" aria-hidden="true">
             <img
@@ -792,6 +792,8 @@ onUnmounted(() => {
               :alt="t.hero.alt"
               class="hero-slide-img"
               :class="{ 'is-active': i === activeHeroSlide, 'is-prev': i === prevHeroSlide }"
+              :fetchpriority="i === 0 ? 'high' : 'low'"
+              :loading="i === 0 ? 'eager' : 'lazy'"
             >
           </div>
         </div>
@@ -813,7 +815,7 @@ onUnmounted(() => {
           <article v-for="project in featuredProjectCards" :key="project.title" class="project-card"
             :class="{ 'project-card-large': project.large }" data-animate>
             <a class="media-frame" :href="project.href">
-              <img :src="project.image" :alt="project.alt">
+              <img :src="project.image" :alt="project.alt" loading="lazy">
             </a>
             <div class="project-meta">
               <h3>{{ project.title }}</h3>
@@ -836,7 +838,7 @@ onUnmounted(() => {
           <article v-for="(service, index) in t.services.items" :key="service.number" class="service-item" data-animate>
             <div class="service-body">
               <div class="service-body-image media-frame">
-                <img :src="serviceImages[index]" :alt="service.title">
+                <img :src="serviceImages[index]" :alt="service.title" loading="lazy">
               </div>
               <div class="service-copy">
                 <h3 class="service-body-title">{{ service.title }}</h3>
@@ -870,12 +872,12 @@ onUnmounted(() => {
 
         <div class="about-layout" data-animate>
           <div class="about-media about-media-left media-frame">
-            <img :src="aboutImages.left" :alt="t.about.gallery.leftAlt">
+            <img :src="aboutImages.left" :alt="t.about.gallery.leftAlt" loading="lazy">
           </div>
 
           <div class="about-column">
             <div class="about-media about-media-center media-frame">
-              <img :src="aboutImages.center" :alt="t.about.gallery.centerAlt">
+              <img :src="aboutImages.center" :alt="t.about.gallery.centerAlt" loading="lazy">
             </div>
           </div>
 
@@ -890,7 +892,7 @@ onUnmounted(() => {
           </div>
 
           <div class="about-media about-media-right media-frame">
-            <img :src="aboutImages.right" :alt="t.about.gallery.rightAlt">
+            <img :src="aboutImages.right" :alt="t.about.gallery.rightAlt" loading="lazy">
           </div>
         </div>
       </section>
@@ -936,7 +938,7 @@ onUnmounted(() => {
       <section class="about-page" aria-labelledby="about-page-title">
         <section class="about-page-hero section-pad">
           <div class="about-page-hero-media media-frame" data-animate>
-            <img :src="aboutPageImages.hero" :alt="t.aboutPage.heroAlt">
+            <img :src="aboutPageImages.hero" :alt="t.aboutPage.heroAlt" loading="lazy">
           </div>
 
           <div class="about-page-hero-copy" data-animate>
@@ -972,7 +974,7 @@ onUnmounted(() => {
           </div>
 
           <div class="about-page-story-media media-frame is-contain">
-            <img :src="aboutPageImages.story" :alt="t.aboutPage.storyAlt">
+            <img :src="aboutPageImages.story" :alt="t.aboutPage.storyAlt" loading="lazy">
           </div>
         </section>
 
@@ -985,7 +987,7 @@ onUnmounted(() => {
             <article v-for="project in aboutFeaturedProjects" :key="project.title" class="project-card"
               :class="{ 'project-card-large': project.large }">
               <a class="media-frame" :href="project.href">
-                <img :src="project.image" :alt="project.alt">
+                <img :src="project.image" :alt="project.alt" loading="lazy">
               </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
@@ -1141,7 +1143,7 @@ onUnmounted(() => {
         <div class="project-grid projects-page-grid">
           <article v-for="project in filteredProjectCards" :key="project.title" class="project-card" data-animate>
             <a class="media-frame" :href="project.href">
-              <img :src="project.image" :alt="project.alt">
+              <img :src="project.image" :alt="project.alt" loading="lazy">
             </a>
             <div class="project-meta">
               <h3>{{ project.title }}</h3>
@@ -1156,7 +1158,7 @@ onUnmounted(() => {
       <article class="project-page">
         <section class="project-hero" aria-labelledby="project-title">
           <div class="project-hero-media media-frame">
-            <img :src="projectImages.hero" :alt="currentProject.heroAlt">
+            <img :src="projectImages.hero" :alt="currentProject.heroAlt" fetchpriority="high">
           </div>
           <div class="project-hero-content section-pad">
             <a class="project-back" href="/#projects">{{ t.projectPage.back }}</a>
@@ -1192,7 +1194,7 @@ onUnmounted(() => {
           <div class="project-slider-window">
             <figure v-for="(image, index) in projectSliderImages" :key="image" class="project-slider-panel"
               :class="getProjectSlideClass(index)" @click="index !== activeProjectSlide && setProjectSlide(index)">
-              <img :src="image" :alt="currentProject.galleryAlt[index] || currentProject.heroAlt">
+              <img :src="image" :alt="currentProject.galleryAlt[index] || currentProject.heroAlt" loading="lazy">
               <figcaption>
                 <span>{{ String(index + 1).padStart(2, '0') }}</span>
                 <strong>{{ currentProject.galleryAlt[index] || currentProject.category }}</strong>
@@ -1227,7 +1229,7 @@ onUnmounted(() => {
             <article v-for="project in moreProjectCards.filter((item) => item.href !== `/${projectSlug}`).slice(0, 6)"
               :key="project.title" class="project-card">
               <a class="media-frame" :href="project.href">
-                <img :src="project.image" :alt="project.alt">
+                <img :src="project.image" :alt="project.alt" loading="lazy">
               </a>
               <div class="project-meta">
                 <h3>{{ project.title }}</h3>
