@@ -276,16 +276,6 @@ const projectImageGroups = {
       sourceAsset('jenys-judo-center/2_D.webp'),
     ],
   },
-  'soldier-lake': {
-    hero: sourceAsset('soldier-lake/008_01.webp'),
-    gallery: [
-      sourceAsset('soldier-lake/001.webp'),
-      sourceAsset('soldier-lake/005_01.webp'),
-      sourceAsset('soldier-lake/007.webp'),
-      sourceAsset('soldier-lake/009.webp'),
-      sourceAsset('soldier-lake/007_01.webp'),
-    ],
-  },
   ippodrom: {
     hero: sourceAsset('ippodrom/ippodrom_bird01.webp'),
     gallery: [
@@ -420,7 +410,6 @@ const projectThumbnailMap = {
   'hayat-park': sourceAsset('hayat-park/01HP001.webp'),
   'high-garden': sourceAsset('high-garden/GPIMR005.webp'),
   'jenys-judo-center': sourceAsset('jenys-judo-center/19_D_2.webp'),
-  'soldier-lake': sourceAsset('soldier-lake/008_01.webp'),
   ippodrom: sourceAsset('ippodrom/ippodrom_bird01.webp'),
   fok: sourceAsset('fok/02_view.webp'),
   jezkazgan: sourceAsset('jezkazgan/view_01_3000.webp'),

@@ -40,7 +40,6 @@ const allItems = {
     { title: 'Alatau Village', categories: ['cottage'], href: '/alatau-village', alt: 'Alatau Village cottage village', status: 'built' },
     { title: 'Mountain Drive', categories: ['commercial'], href: '/mountain-drive', alt: 'Mountain Drive commercial project', status: 'sketch' },
     { title: 'Jenys Judo Center', categories: ['commercial'], href: '/jenys-judo-center', alt: 'Jenys Judo Center commercial project', status: 'sketch' },
-    { title: 'Soldier Lake', categories: ['hotel'], href: '/soldier-lake', alt: 'Soldier Lake recreation complex', status: 'sketch' },
     { title: 'Ippodrom', categories: ['commercial'], href: '/ippodrom', alt: 'Ippodrom equestrian complex', status: 'built' },
     { title: 'FOK', categories: ['commercial'], href: '/fok', alt: 'FOK sports complex', status: 'built' },
   ],
@@ -71,7 +70,6 @@ const allItems = {
     { title: 'Alatau Village', categories: ['cottage'], href: '/alatau-village', alt: 'Alatau Village коттеджді ауыл', status: 'built' },
     { title: 'Mountain Drive', categories: ['commercial'], href: '/mountain-drive', alt: 'Mountain Drive коммерциялық жоба', status: 'sketch' },
     { title: 'Jenys Judo Center', categories: ['commercial'], href: '/jenys-judo-center', alt: 'Jenys Judo Center', status: 'sketch' },
-    { title: 'Солдат көлі', categories: ['hotel'], href: '/soldier-lake', alt: 'Солдат көлі демалыс кешені', status: 'sketch' },
     { title: 'Ипподром', categories: ['commercial'], href: '/ippodrom', alt: 'Ипподром ат спорты кешені', status: 'built' },
     { title: 'ФОК', categories: ['commercial'], href: '/fok', alt: 'ФОК спорт кешені', status: 'built' },
   ],
@@ -102,7 +100,6 @@ const allItems = {
     { title: 'Alatau Village', categories: ['cottage'], href: '/alatau-village', alt: 'Коттеджный посёлок Alatau Village', status: 'built' },
     { title: 'Mountain Drive', categories: ['commercial'], href: '/mountain-drive', alt: 'Коммерческий проект Mountain Drive', status: 'sketch' },
     { title: 'Jenys Judo Center', categories: ['commercial'], href: '/jenys-judo-center', alt: 'Спортивный центр Jenys Judo Center', status: 'sketch' },
-    { title: 'Солдатское Озеро', categories: ['hotel'], href: '/soldier-lake', alt: 'Рекреационный комплекс Солдатское Озеро', status: 'sketch' },
     { title: 'Ипподром', categories: ['commercial'], href: '/ippodrom', alt: 'Конноспортивный комплекс Ипподром', status: 'built' },
     { title: 'ФОК', categories: ['commercial'], href: '/fok', alt: 'Физкультурно-оздоровительный комплекс ФОК', status: 'built' },
   ],
@@ -781,30 +778,6 @@ export const translations = {
         sections: [
           { title: 'Concept', text: 'The building is organized around the main competition hall, with training areas, support facilities and spectator spaces arranged to allow independent operation when needed. The structural system is designed to provide column-free spans across all training and competition floors.' },
           { title: 'Architecture', text: 'The exterior expresses the scale and character of the interior program through a bold massing and a facade that uses controlled openings to manage light and ventilation. The building reads clearly as a public sports facility within the urban fabric.' },
-        ],
-      },
-      'soldier-lake': {
-        title: 'Soldier Lake',
-        category: 'Recreation complex',
-        heroAlt: 'Soldier Lake lakeside recreation complex exterior view',
-        summary: 'Soldier Lake is a lakeside recreation complex built from low-rise pavilions, terraces and landscape paths that keep every volume close to the water and the forest edge.',
-        facts: [
-          { label: 'Type', value: 'Recreation complex' },
-          { label: 'Location', value: 'Kazakhstan' },
-          { label: 'Status', value: 'Sketch design' },
-          { label: 'Scope', value: 'Architecture, planning, visualization' },
-        ],
-        galleryAlt: [
-          'Soldier Lake aerial view',
-          'Soldier Lake pavilion in the landscape',
-          'Soldier Lake evening terrace',
-          'Soldier Lake winter retreat',
-          'Soldier Lake forest pavilion',
-          'Soldier Lake arrival view',
-        ],
-        sections: [
-          { title: 'Idea', text: 'The composition is organized as a sequence of pavilions stepping through the terrain, so every volume keeps a direct relationship to the lake, the forest and the open sky. The project balances privacy with a shared resort atmosphere.' },
-          { title: 'Seasonality', text: 'Timber, glazing and warm interior light allow the complex to work in both summer and winter. The architecture shifts between open leisure and sheltered retreat without losing a calm visual identity.' },
         ],
       },
       ippodrom: {
@@ -1533,30 +1506,6 @@ export const translations = {
         sections: [
           { title: 'Концепт', text: 'Ғимарат негізгі жарыс залы айналасында ұйымдастырылған, жаттығу аймақтары, қосалқы нысандар мен көрермен кеңістіктері қажет болғанда дербес жұмыс істеуге мүмкіндік береді.' },
           { title: 'Архитектура', text: 'Сыртқы бет ішкі бағдарламаның масштабы мен сипатын батыл масса мен жарық пен желдетуді басқаратын бақыланатын ашылымдары бар фасад арқылы бейнелейді.' },
-        ],
-      },
-      'soldier-lake': {
-        title: 'Солдат көлі',
-        category: 'Демалыс кешені',
-        heroAlt: 'Солдат көлі жағалауындағы демалыс кешенінің сыртқы көрінісі',
-        summary: 'Солдат көлі — су жағасында орналасқан демалыс кешені. Төмен қабатты павильондар, террасалар және ландшафттық жолдар әр көлемді су мен орман шетіне жақын ұстайды.',
-        facts: [
-          { label: 'Түрі', value: 'Демалыс кешені' },
-          { label: 'Орналасуы', value: 'Қазақстан' },
-          { label: 'Мәртебесі', value: 'Эскиздік жоба' },
-          { label: 'Құрамы', value: 'Архитектура, жоспарлау, визуализация' },
-        ],
-        galleryAlt: [
-          'Солдат көлі биіктен көрінісі',
-          'Солдат көлі павильоны',
-          'Солдат көлі кешкі терраса',
-          'Солдат көлі қысқы демалыс орны',
-          'Солдат көлі орман павильоны',
-          'Солдат көлі келу көрінісі',
-        ],
-        sections: [
-          { title: 'Идея', text: 'Композиция рельеф бойымен сатыланып орналасқан павильондар тізбегінен тұрады. Әр көлем көлмен, орманмен және ашық аспанмен тікелей байланыста қалып, жоба жеке тыныштық пен ортақ курорттық атмосфераны тең ұстайды.' },
-          { title: 'Маусымдылық', text: 'Ағаш, әйнек және жылы ішкі жарық кешеннің жазда да, қыста да жұмыс істеуіне мүмкіндік береді. Архитектура ашық демалыс пен қорғалған тынығу режимдерінің арасында табиғи ауысады.' },
         ],
       },
       ippodrom: {
@@ -2300,30 +2249,6 @@ export const translations = {
         sections: [
           { title: 'Концепция', text: 'Здание организовано вокруг главного соревновательного зала, тренировочные зоны, вспомогательные помещения и зрительские пространства расположены для возможности независимой эксплуатации.' },
           { title: 'Архитектура', text: 'Экстерьер выражает масштаб и характер внутренней программы через смелый объём и фасад с контролируемыми проёмами для управления светом и вентиляцией.' },
-        ],
-      },
-      'soldier-lake': {
-        title: 'Солдатское Озеро',
-        category: 'Рекреационный комплекс',
-        heroAlt: 'Экстерьер рекреационного комплекса на Солдатском Озере',
-        summary: 'Солдатское Озеро — рекреационный комплекс на берегу воды. Низкие павильоны, террасы и ландшафтные маршруты держат каждый объём рядом с водой и кромкой леса.',
-        facts: [
-          { label: 'Тип', value: 'Рекреационный комплекс' },
-          { label: 'Локация', value: 'Казахстан' },
-          { label: 'Статус', value: 'Эскизный проект' },
-          { label: 'Задача', value: 'Архитектура, планирование, визуализация' },
-        ],
-        galleryAlt: [
-          'Солдатское Озеро аэрофото',
-          'Солдатское Озеро павильон в ландшафте',
-          'Солдатское Озеро вечерняя терраса',
-          'Солдатское Озеро зимний вид',
-          'Солдатское Озеро лесной павильон',
-          'Солдатское Озеро подъезд',
-        ],
-        sections: [
-          { title: 'Идея', text: 'Композиция построена как последовательность павильонов, ступенями спускающихся по рельефу. Каждый объём сохраняет прямую связь с озером, лесом и открытым небом, а проект удерживает баланс между приватностью и атмосферой общего отдыха.' },
-          { title: 'Сезонность', text: 'Дерево, остекление и тёплый внутренний свет позволяют комплексу работать и летом, и зимой. Архитектура естественно переключается между открытым отдыхом и защищённым уединением, не теряя спокойного образа.' },
         ],
       },
       ippodrom: {
