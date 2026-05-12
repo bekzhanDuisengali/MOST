@@ -1,6 +1,10 @@
 <script setup>
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, defineAsyncComponent, nextTick, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
 import { languages, projectTypeOrder, translations } from './i18n';
+import { loadProjects, mergeIntoI18n } from './composables/useProjects';
+import { archivedSlugs } from './composables/useArchivedSlugs';
+
+const AdminPanel = defineAsyncComponent(() => import('./AdminPanel.vue'));
 
 const isMenuOpen = ref(false);
 const isHeaderSolid = ref(false);
@@ -23,6 +27,7 @@ const projectSlug = computed(() => currentPath.value.split('/').filter(Boolean)[
 const isAboutPage = computed(() => projectSlug.value === 'about');
 const isContactsPage = computed(() => projectSlug.value === 'contacts');
 const isProjectsPage = computed(() => projectSlug.value === 'projects');
+const isAdminPage = computed(() => projectSlug.value === 'admin');
 const currentProject = computed(() => t.value.projectPages?.[projectSlug.value] || null);
 const isProjectPage = computed(() => Boolean(currentProject.value));
 const homePathPrefix = computed(() => (currentPath.value === '/' ? '' : '/'));
@@ -34,7 +39,10 @@ const navItems = computed(() => [
 ]);
 
 
-const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const publicAsset = (path) => {
+  if (/^https?:\/\//i.test(path)) return path;
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+};
 const sourceAsset = (path) => new URL(`./public/${path.replace(/^\/+/, '')}`, import.meta.url).href;
 const logoWhite = publicAsset('white.svg');
 const heroImage = sourceAsset('View_02,2.webp');
@@ -63,7 +71,7 @@ const projectThumbs = [
   sourceAsset('sections/about-copy/3.webp'),
 ];
 
-const projectImageGroups = {
+const projectImageGroups = reactive({
   meliora: {
     hero: publicAsset('meliora/general-road.webp'),
     gallery: [
@@ -390,9 +398,9 @@ const projectImageGroups = {
       sourceAsset('terrenkur-terrace/YARD_1_2.webp'),
     ],
   },
-};
+});
 
-const projectThumbnailMap = {
+const projectThumbnailMap = reactive({
   meliora: publicAsset('meliora/general-road.webp'),
   biography: publicAsset('biography/New_01.webp'),
   naukograd: publicAsset('naukograd/Bird_night_02_02.webp'),
@@ -421,7 +429,7 @@ const projectThumbnailMap = {
   'nova-village': sourceAsset('nova-village/view_06_ptichka.webp'),
   tausamal: sourceAsset('tausamal/view_07.webp'),
   'terrenkur-terrace': sourceAsset('terrenkur-terrace/ROAD_VIEW_2.webp'),
-};
+});
 
 const projectImages = computed(() => projectImageGroups[projectSlug.value] || projectImageGroups.meliora);
 const projectSliderImages = computed(() => [projectImages.value.hero, ...projectImages.value.gallery]);
@@ -430,13 +438,15 @@ const currentProjectStatus = computed(() => {
   const key = item?.status ?? 'sketch';
   return { key, label: t.value.statusLabels?.[key] ?? '' };
 });
-const projectCards = computed(() => t.value.projects.items.map((project, index) => {
-  const slug = project.href.replace(/^\//, '');
-  const image = projectThumbnailMap[slug] || projectThumbs[index % projectThumbs.length];
-  const types = project.types ?? project.categories ?? [];
-  const typeLabel = types.map((type) => t.value.categoryLabels[type]).join(', ');
-  return { ...project, types, image, typeLabel };
-}));
+const projectCards = computed(() => t.value.projects.items
+  .filter((project) => !archivedSlugs.value.includes(project.href.replace(/^\//, '')))
+  .map((project, index) => {
+    const slug = project.href.replace(/^\//, '');
+    const image = projectThumbnailMap[slug] || projectThumbs[index % projectThumbs.length];
+    const types = project.types ?? project.categories ?? [];
+    const typeLabel = types.map((type) => t.value.categoryLabels[type]).join(', ');
+    return { ...project, types, image, typeLabel };
+  }));
 const featuredProjectCards = computed(() => projectCards.value.slice(0, 6));
 const moreProjectCards = computed(() => projectCards.value.slice(0, 7));
 const filteredProjectCards = computed(() => {
@@ -658,9 +668,13 @@ function updateHeaderState() {
   updateHomeStackTransition();
 }
 
-onMounted(() => {
+onMounted(async () => {
   const savedLanguage = window.localStorage.getItem('most-language');
   currentPath.value = window.location.pathname;
+
+  loadProjects().then((rows) => {
+    if (rows.length) mergeIntoI18n(translations, projectImageGroups, projectThumbnailMap, rows);
+  });
 
   if (translations[savedLanguage]) {
     currentLanguage.value = savedLanguage;
@@ -737,7 +751,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="site-header"
+  <header v-if="!isAdminPage" class="site-header"
     :class="{ 'is-solid': isHeaderSolid || isMenuOpen || isProjectsPage || isContactsPage, 'is-about-page': isAboutPage }">
     <a class="brand" href="/" :aria-label="t.aria.home">
       <img :src="logoWhite" alt="Most Architects">
@@ -778,7 +792,7 @@ onUnmounted(() => {
   </header>
 
   <main>
-    <template v-if="!isProjectPage && !isProjectsPage && !isAboutPage && !isContactsPage">
+    <template v-if="!isProjectPage && !isProjectsPage && !isAboutPage && !isContactsPage && !isAdminPage">
       <section ref="homeHeroEl" class="hero stack-hero" aria-labelledby="hero-title">
         <div class="hero-media media-frame">
           <picture class="hero-slide-desktop">
@@ -1138,6 +1152,10 @@ onUnmounted(() => {
           </article>
         </div>
       </section>
+    </template>
+
+    <template v-else-if="isAdminPage">
+      <AdminPanel @projects-updated="loadProjects().then((rows) => { if (rows.length) mergeIntoI18n(translations, projectImageGroups, projectThumbnailMap, rows); })" />
     </template>
 
     <template v-else>
